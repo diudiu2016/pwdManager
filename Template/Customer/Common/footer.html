@@ -1,0 +1,47 @@
+</div>
+
+<!--jQuery-->
+<script type="text/javascript" src="__PUBLIC__/utils/jquery/jquery-1.10.2.min.js"></script>
+
+<!--highcharts-->
+<script src="__PUBLIC__/utils/highcharts/highcharts.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/utils/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- canvas-to-blob JavaScript -->
+<script src="__PUBLIC__/utils/fileinput/canvas-to-blob.min.js"></script>
+
+<!-- fileinput JavaScript -->
+<script src="__PUBLIC__/utils/fileinput/fileinput.min.js"></script>
+
+<!-- fileinput JavaScript -->
+<script src="__PUBLIC__/utils/fileinput/fileinput_locale_zh.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/utils/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="__PUBLIC__/custom/js/sb-admin-2.js"></script>
+
+<!--<script src="__PUBLIC__/custom/js/admin.js"></script>-->
+
+<!--Auto logout function-->
+<script>
+var maxTime = 600; // seconds
+    var time = maxTime;
+    $('body').on('keydown mousemove mousedown', function(e){
+        time = maxTime; // reset
+    });
+    var intervalId = setInterval(function(){
+        time--;
+        if(time <= 0) {
+            ShowInvalidLoginMessage();
+            clearInterval(intervalId);
+        }
+    }, 1000)
+    function ShowInvalidLoginMessage(){
+        alert('Due to no operations within 10 minutes, you are being automatically logout.');
+        $(location).attr('href', '__APP__/Home/Index/logout')
+    }
+</script>

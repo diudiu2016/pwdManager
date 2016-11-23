@@ -1,0 +1,12 @@
+/* rewrite bootstrap */
+.page-main {
+    padding: 100px 0 0 0;
+}
+.page-center {
+    padding-top:100px;
+}
+
+.form-box {
+    opacity: 0.9;
+}
+

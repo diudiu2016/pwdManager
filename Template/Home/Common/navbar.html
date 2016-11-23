@@ -1,0 +1,60 @@
+<style type="text/css">
+    .head {
+        font-size: 30px;
+    }
+    .head small {
+        font-size: 20px;
+    }
+    .nav-text {
+        font-size: 20px;
+    }
+    .nav-container {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+    <div class="container nav-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Password Manager</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand head" href="__APP__/Home/index/index">Password Manager <small>-- Your best assistant</small></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="scroll-link nav-text" href="#">Features</a></li>
+                <li><a class="scroll-link nav-text" href="#">Testimonials</a></li>
+                <li><a class="scroll-link nav-text" href="#">Sharepad</a></li>
+                <switch name="Think.session.user_status">
+                    <case value="1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" id="nav-user" data-id="{$user.account_id}" data-type="1" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    {$Think.session.user_nickname}
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="__APP__/Customer/Index/index">Personal Information</a></li>
+                                    <li><a href="__APP__/Customer/Password/index">My Passwords</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="__APP__/Home/Index/logout">Log Out</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </case>
+                    <case value="2">
+                        <li><a class="btn btn-" href="#">{$Think.session.user_nickname}</a></li>
+                    </case>
+                    <default />
+                    <li class="active"><a class="btn btn-default" href="__APP__/Home/Index/index">Log In</a></li>
+                </switch>
+            </ul>
+        </div>
+    </div>
+</nav>

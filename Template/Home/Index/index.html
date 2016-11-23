@@ -1,0 +1,68 @@
+<include file="./Template/Home/Common/header.html" />
+<include file="./Template/Home/Common/navbar.html" />
+<style type="text/css">
+    body{
+        background-image: url(__PUBLIC__/picture/bg1.jpg);
+        background-size: cover;
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        line-height: 20px;
+        font-family: arial, sans-serif;
+        color: #9c9c9c;
+        min-width: 920px;
+    }
+</style>
+
+<div class="page-center" >
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7">
+            <h1>some description<span id="typed"></span></h1>
+            some description
+
+        </div>
+    <!-- Form Start -->
+    <div class="col-sm-5 panel panel-default form-box">
+        <div class="form-top">
+            <div class="form-top-left">
+                <h3 align="center"><strong>Log in</strong> and manage your passwords</h3>
+            </div>
+            <div class="form-top-right">
+                <span aria-hidden="true" class="typcn typcn-pencil"></span>
+            </div>
+        </div>
+        <div class="form-bottom">
+            <form role="form" action="__APP__/Home/User/index" method="post" id="loginForm" data-parsley-validate>
+                <div class="form-group">
+                    Email :
+                    <label class="sr-only" for="form-email">Email</label>
+                    <input type="email" name="email" placeholder="Your Email"
+                           class="form-email form-control" id="form-email" data-parsley-type="email" data-parsley-trigger="blur" data-parsley-required>
+                </div>
+                <div>
+                </div>
+                <div class="form-group">
+                    Password:
+                    <label class="sr-only" for="form-password">Password</label>
+                    <input type="password" name="password" placeholder="Your Log-in Password"
+                           class="form-email form-control" id="form-password"  data-parsley-trigger="blur" data-parsley-required>
+                </div>
+
+
+                <button type="submit" class="btn btn-block sign-up-main btn-primary" ><strong>Log In</strong></button>
+                <br>
+                <span style="float: right"><small>Do not have an account? <strong><a href="__APP__/Home/User/register">Sign up</a></strong> instead!</small></span>
+                <br>
+            </form>
+        </div>
+    </div>
+
+    <!-- Form End -->
+    </div>
+</div><!-- /.container -->
+</div>
+<include file="./Template/Home/Common/footer.html" />
+
+<include file="./Template/Home/Common/foot.html" />

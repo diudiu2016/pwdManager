@@ -1,0 +1,125 @@
+<script src="../../../../../Public/utils/jquery/jquery-1.10.2.min.js"></script>
+<include file="./Template/Customer/Common/header.html" />
+<include file="./Template/Customer/Common/nav.html" />
+<style type="text/css">
+    .lj-alert h4{
+        font-weight: 100;
+    }
+</style>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Read password</h1>
+        </div>
+    </div>
+    <div class="col-xs-10 col-sm-8 col-md-6">
+
+        <form class="form-horizontal" id="info-info-panel" action="__APP__/Customer/Password/read" method="post" enctype="multipart/form-data">
+            <present name="info.error">
+                <div class="alert alert-danger" role="alert">{$info.error}</div>
+            </present>
+            
+            <div id="inputPart">
+                <p>
+                    Please enter the <span id="digit1"></span>, <span id="digit2"></span>, <span id="digit3"></span> digit of your second password.
+                </p>
+                <input class="col-sm-1" type="text" class="form-control" name="p1" id="pw1" maxlength="1" required>
+                <input class="col-sm-1" type="text" class="form-control" name="p2" id="pw2" maxlength="1" required>
+                <input class="col-sm-1" type="text" class="form-control" name="p3" id="pw3" maxlength="1" required>
+                <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-3">
+                        <button type="submit" class="btn btn-primary btn-block" id="readBtn">Read</button>
+                    </div>
+                </div>
+            </div>
+
+            <input type="text" class="form-control" name="p4" id="p4" style="display:none;" value="0">
+            <input type="text" class="form-control" name="p5" id="p5" style="display:none;" value="0">
+            <input type="text" class="form-control" name="p6" id="p6" style="display:none;" value="0">
+            <input type="text" class="form-control" name="p7" id="p7" style="display:none;" value="0">
+
+            <div id="resultPart">
+                <div class="row">
+                  <div class="col-xs-4">Your password: </div>
+                  <div id="result" class="col-xs-6">{$info.pw}</div>
+                  <div id="copyBtn" class="col-xs-2">
+                      <button id="copyBtn" type="button" class="btn btn-secondary">Copy</button>
+                  </div>
+                </div>
+                </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+
+        //select 3 random digit and show to user
+        $('#digit1').text(<?php print($info['randDigit1']);?>);
+        $('#digit2').text(<?php print($info['randDigit2']);?>);
+        $('#digit3').text(<?php print($info['randDigit3']);?>);
+        $('#p4').val(<?php print($info['randDigit1']);?>);
+        $('#p5').val(<?php print($info['randDigit2']);?>);
+        $('#p6').val(<?php print($info['randDigit3']);?>);
+
+        //hide input part if result is got
+        if (<?php print($info['found']);?> == true){
+            $('#inputPart').hide();
+        }else {
+            $('#resultPart').hide();
+        }
+
+        //set requested pw id
+        var x = location.href.split("/");
+        var id = x[x.length-1]
+        $('#p7').val(id);
+
+        //copy function
+        $("#copyBtn").on('click', copyToClipboard);
+
+        function copyToClipboardFF(text) {
+      window.prompt ("Copy to clipboard: Ctrl C, Enter", text);
+    }
+
+    function copyToClipboard() {
+      var input = $("#result");
+
+      var success = true,
+         range = document.createRange(),
+         selection;
+
+     // For IE.
+     if (window.clipboardData) {
+       window.clipboardData.setData("Text", input.text());
+     } else {
+       // Create a temporary element off screen.
+       var tmpElem = $('<div>');
+       tmpElem.css({
+         position: "absolute",
+         left:     "-1000px",
+         top:      "-1000px",
+       });
+       // Add the input value to the temp element.
+       tmpElem.text(input.text());
+       $("body").append(tmpElem);
+       // Select temp element.
+       range.selectNodeContents(tmpElem.get(0));
+       selection = window.getSelection ();
+       selection.removeAllRanges ();
+       selection.addRange (range);
+       // Lets copy.
+       try { 
+         success = document.execCommand ("copy", false, null);
+       }
+       catch (e) {
+         copyToClipboardFF(input.val());
+       }
+       if (success) {
+         // remove temp element.
+         tmpElem.remove();
+          }
+      }
+    }
+    });
+</script>
+<include file="./Template/Customer/Common/footer.html" />
+<include file="./Template/Customer/Common/foot.html" />

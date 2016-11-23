@@ -1,0 +1,57 @@
+<script src="../../Public/utils/jquery/jquery-1.10.2.min.js"></script>
+<script src="index.js"></script>
+<script src="../Common/copyPwd.js"></script>
+<include file="./Template/Customer/Common/header.html" />
+<include file="./Template/Customer/Common/nav.html" />
+
+<div id="page-wrapper">
+    <form>
+    <div class="form-group">
+        <label for="lengthInput">Length (4-30)</label>
+        <input type="length" class="form-control" id="lengthInput" placeholder="Input length">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input id = "includeSymbolCheckbox" name="condCheckbox" type="checkbox" checked> include sympbols
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+          <input id="includeNumCheckbox" name="condCheckbox" type="checkbox" checked> include numbers
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input id="includeLowCaseCheckbox" name="condCheckbox" type="checkbox" checked> include lower case characters
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input id="includeUpCaseCheckbox" name="condCheckbox" type="checkbox" checked> include upper case characters
+        </label>
+  </div>
+  
+    <button type="button" id="genBtn" class="btn btn-info">Generate</button>
+
+    <p id="errMsg1" class="errMsg" style="display: none; font-size:10px; color: red">
+        Please input a valid number in the range 4-30 for length.
+    </p>
+    <p id="errMsg2" class="errMsg" style="display: none; font-size:10px; color: red">
+        Please select at least one condition for password generation.
+    </p>
+    </form>
+
+    <!--Result area-->
+    <div class="row">
+      <div class="col-xs-4">Generated password: </div>
+      <div id="result" class="col-xs-6"></div>
+      <div id="copyBtn" class="col-xs-2">
+          <button id="copyBtn" type="button" class="btn btn-secondary">Copy</button>
+      </div>
+    </div>
+
+</div>
+
+<!-- /#page-wrapper -->
+<include file="./Template/Customer/Common/footer.html" />
+<include file="./Template/Customer/Common/foot.html" />

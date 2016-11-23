@@ -1,0 +1,84 @@
+[ 2016-11-15T22:39:21+08:00 ] ::1 /pwdManager/index.php/admin/Generator/Generator/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000548s ]
+ERR: 无法加载模块:Admin
+
+[ 2016-11-15T22:49:16+08:00 ] ::1 /pwdManager/index.php/Public/utils/jquery/jquery-1.10.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000523s ]
+ERR: 无法加载模块:Public
+
+[ 2016-11-15T22:51:40+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001920s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:51:41+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000576s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:52:36+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000707s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:52:41+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000769s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:52:50+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000617s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:54:15+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000752s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:54:51+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000644s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:54:51+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000387s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:56:34+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000843s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:56:34+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000545s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T22:57:03+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+ERR: 无法加载模块:Common
+
+[ 2016-11-15T23:58:25+08:00 ] ::1 /pwdManager/index.php/Common/copyPwd.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+ERR: 无法加载模块:Common
+

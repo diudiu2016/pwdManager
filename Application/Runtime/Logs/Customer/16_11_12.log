@@ -1,0 +1,81 @@
+[ 2016-11-12T22:02:23+08:00 ] ::1 /pwdManager/index.php/Customer/Password/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000111s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002957s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001418s ]
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+
+[ 2016-11-12T22:02:26+08:00 ] ::1 /pwdManager/index.php/Customer/Password/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000493s ]
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+
+[ 2016-11-12T22:02:34+08:00 ] ::1 /pwdManager/index.php/Customer/Password/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000442s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000456s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000562s ]
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+
+[ 2016-11-12T22:02:59+08:00 ] ::1 /pwdManager/index.php/Customer/Password/Inde
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001507s ]
+ERR: 非法操作:Inde
+
+[ 2016-11-12T22:03:03+08:00 ] ::1 /pwdManager/index.php/Customer/Password/Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000494s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000732s ]
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+
+[ 2016-11-12T22:03:10+08:00 ] ::1 /pwdManager/index.php/Customer/Password/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000414s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000455s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000495s ]
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+
+[ 2016-11-12T22:19:24+08:00 ] ::1 /pwdManager/index.php/Customer/Password/Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000996s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001015s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001095s ]
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+ERR: 1146:Table 'pwd_manager.pwd_user_passwords' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `pwd_user_passwords`
+

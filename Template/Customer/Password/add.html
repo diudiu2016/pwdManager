@@ -1,0 +1,72 @@
+<include file="./Template/Customer/Common/header.html" />
+<include file="./Template/Customer/Common/nav.html" />
+
+<style type="text/css">
+    .lj-alert h4{
+        font-weight: 100;
+    }
+</style>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add new password</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-sm-8 col-md-6">
+
+            <form class="form-horizontal" id="info-info-panel" action="__APP__/Customer/Password/add" method="post" enctype="multipart/form-data">
+                <present name="info.error">
+                    <div class="alert alert-danger" role="alert">{$info.error}</div>
+                </present>
+
+                <present name="info.message">
+                    <br>
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p>{$info.message}</p>
+                    </div>
+                </present>
+
+                <div class="form-group">
+                    <label for="info-item" class="col-sm-3 control-label">Item</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="item" id="info-item" placeholder="Which site your password is for (like 'facebook')" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="info-name" class="col-sm-3 control-label">User name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="name" id="info-name" placeholder="Your id/name in the site (like 'Mark')"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="info-password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="password" id="info-password" placeholder="The content of your password(like '123456a')" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-3">
+                        <button type="submit" class="btn btn-primary btn-block" id="submit">save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<include file="./Template/Customer/Common/footer.html" />
+<script type="javascript">
+    $('#add').click(function() {
+        var url = $(this).attr('href');
+        location.href = url;
+    });
+</script>
+<include file="./Template/Customer/Common/foot.html" />

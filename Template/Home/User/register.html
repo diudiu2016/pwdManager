@@ -1,0 +1,181 @@
+<include file="./Template/Home/Common/header.html" />
+<include file="./Template/Home/Common/navbar.html" />
+<style type="text/css">
+    body{
+        background-image: url(__PUBLIC__/picture/bg1.jpg);
+        background-size: cover;
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        line-height: 20px;
+        font-family: arial, sans-serif;
+        color: #9c9c9c;
+        min-width: 920px;
+    }
+</style>
+
+<div class="page-center" >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <h1>some description<span id="typed"></span></h1>
+                some description
+
+            </div>
+            <!-- Form Start -->
+            <div class="col-sm-5 panel panel-default form-box">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3 align="center"><strong>Sign up</strong> for a new account</h3>
+                    </div>
+                    <div class="form-top-right">
+                        <span aria-hidden="true" class="typcn typcn-pencil"></span>
+                    </div>
+                </div>
+                <div class="form-bottom">
+                    <form role="form" action="__APP__/Home/User/register" method="post" id="registerForm" onsubmit="return check(this)" data-parsley-validate>
+                        <div class="form-group">
+                            Email :
+                            <label class="sr-only" for="form-email">Email</label>
+                            <input type="email" name="email" placeholder="Your Email"
+                                   class="form-email form-control" id="form-email" data-parsley-type="email" data-parsley-trigger="blur" data-parsley-required required>
+                        </div>
+                        <p id="errorHint1" class="errMsg" style="display: none; font-size:10px; color: red">
+                            This email has already registered!
+                        </p>
+                        <div class="form-group">
+                            Nickname :
+                            <label class="sr-only" for="form-email">Nickname</label>
+                            <input type="text" name="nickname" placeholder="Your Nickname"
+                                   class="form-nickname form-control" id="form-nickname"  data-parsley-trigger="blur" data-parsley-required required>
+                        </div>
+                        <div class="form-group">
+                            Password:
+                            <label class="sr-only" for="form-password">Password</label>
+                            <input type="password" name="password" placeholder="Your Log-in Password"
+                                   class="form-email form-control" id="form-password"  data-parsley-trigger="blur" data-parsley-required required>
+                        </div>
+                        <p id="errorHint5" class="errMsg" style="display: none; font-size:10px; color: red">
+                            Please enter a password with length 4-50.
+                        </p>
+                        <div class="form-group">
+                            Password Again:
+                            <label class="sr-only" for="form-password">Password</label>
+                            <input type="password" name="password_1" placeholder="Input Your Password Again"
+                                   class="form-email form-control" id="form-password-1" data-parsley-trigger="blur" data-parsley-required required>
+                        </div>
+                        <p id="errorHint2" class="errMsg" style="display: none; font-size:10px; color: red">
+                            The passwords you have typed are not consistent, please try again!
+                        </p>
+                        <!--Double password-->
+                        <div class="form-group">
+                            Second Password: (length:4-50)
+                            <label class="sr-only" for="form-password">Password</label>
+                            <input type="password" name="password_2" placeholder="Your Second Password"
+                                   class="form-email form-control" id="form-password-2"  data-parsley-trigger="blur" data-parsley-required required>
+                        </div>
+                        <p id="errorHint6" class="errMsg" style="display: none; font-size:10px; color: red">
+                            Please enter a password with length 4-50.
+                        </p>
+                        <div class="form-group">
+                            Second Password Again:
+                            <label class="sr-only" for="form-password">Password</label>
+                            <input type="password" name="password_3" placeholder="Input Your Second Password Again"
+                                   class="form-email form-control" id="form-password-3" data-parsley-trigger="blur" data-parsley-required required>
+                        </div>
+                        <p id="errorHint3" class="errMsg" style="display: none; font-size:10px; color: red">
+                            The passwords you have typed are not consistent, please try again!
+                        </p>
+                        <p id="errorHint4" class="errMsg" style="display: none; font-size:10px; color: red">
+                            The login password and second password cannot be the same, please try again!
+                        </p>
+                        <button type="submit" id="submit" href="__APP__/Home/User/register"
+                                class="btn btn-block sign-up-main btn-primary" ><strong>Sign Up</strong></button>
+                        <br>
+                        <span style="float: right"><small>Already have an account? <strong><a href="__APP__/Home/Index/index">Log in</a></strong> now!</small></span>
+                        <br>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Form End -->
+        </div>
+    </div><!-- /.container -->
+</div>
+<include file="./Template/Home/Common/footer.html" />
+<script type="text/javascript">
+    function check(form){
+        console.log(form.password.value + " "+ form.password_1.value);
+        if(form.password.value.length<4 || form.password.value.length > 50){
+            var error = document.getElementById("errorHint5");
+            error.style.display = "block";
+            return false;
+        }else if(form.password_2.value.length<4 || form.password_2.value.length > 50){
+            var error = document.getElementById("errorHint6");
+            error.style.display = "block";
+            return false;
+        }else if(form.password.value != form.password_1.value){
+            var error = document.getElementById("errorHint2");
+            error.style.display = "block";
+            return false;
+        }else if(form.password_2.value != form.password_3.value ){
+            var error = document.getElementById("errorHint3");
+            error.style.display = "block";
+            return false;
+        }else if (form.password.value == form.password_2.value){
+            var error = document.getElementById("errorHint4");
+            error.style.display = "block";
+            return false;
+        }
+        return true;
+    }
+
+    $(document).ready(function() {
+        $("input").change(function(){
+            $(".errMsg").hide();
+          });
+    });
+//    $('#submit').click(function(){
+//        var url = $(this).attr('href');
+//        var email = document.getElementById("form-email").value;
+//        var nickname = document.getElementById("form-nickname").value;
+//        var password = document.getElementById("form-password").value;
+//        var password1 = document.getElementById("form-password-1").value;
+//        var password-2 = document.getElementById("form-password-2").value;
+//        var password-3 = document.getElementById("form-password-3").value;
+//        //alert(nickname+" "+password+" "+password1);
+//        if(password != password1) {
+//            var error = document.getElementById("errorHint2");
+//            error.style.display = "block";
+//        }
+//        if(password2 != password3) {
+//            var error = document.getElementById("errorHint3");
+//            error.style.display = "block";
+//        }
+//        if (password == password2) {
+//            var error = document.getElementById("errorHint4");
+//            error.style.display = "block";
+//        }
+//            else {
+//            var data = [];
+//            data['email'] = email;
+//            data['nickname'] = nickname;
+//            data['password'] = password;
+//            data['password-2'] = password-2;
+//            //alert(data['email']);
+//            $.post(url, data, function(res){
+//                if (res.code == 0) {
+//                    alert("Register successfully!");
+//                    location.href = "__APP__/Home/Index/index";
+//                } else if (res.code == 1){
+//                    var error = document.getElementById("errorHint1");
+//                    error.style.display = "block";
+//                } else {
+//                    alert("Sorry, you failed to register" + res.code);
+//                }
+//            });
+//        }
+//    });
+</script>
+<include file="./Template/Home/Common/foot.html" />
