@@ -1,0 +1,157 @@
+<script src="../../../Public/utils/jquery/jquery-1.10.2.min.js"></script>
+<include file="./Template/Customer/Common/header.html" />
+<include file="./Template/Customer/Common/nav.html" />
+
+<div id="page-wrapper">
+    <form>
+    <div class="form-group">
+        <label for="pwInput">Check your password strength</label>
+        <input type="password" class="form-control" id="pwInput" placeholder="Input password">
+    </div>
+  
+    <button type="button" id="ckBtn" class="btn btn-info">Check</button>
+
+    <p id="errMsg1" class="errMsg" style="display: none; font-size:10px; color: red">
+        Please input a password.
+    </p>
+    </form>
+
+    <!--Result area-->
+    <div id="resArea" style="display:none;">
+      <div class="row">
+        <div class="col-xs-1">Result: </div>
+        <div id="result" class="col-xs-6"></div>
+      </div>
+      <div class="row">
+        <div id="detail" class="col-xs-8"></div>
+        <div class="col-xs-6"></div>
+      </div>
+      <div class="checkbox">
+      <label>
+          <input id = "includeSymbolCheckbox" name="condCheckbox" type="checkbox" disabled> include sympbols
+      </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="includeNumCheckbox" name="condCheckbox" type="checkbox" disabled> include numbers
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+            <input id="includeLowCaseCheckbox" name="condCheckbox" type="checkbox" disabled> include lower case characters
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input id="includeUpCaseCheckbox" name="condCheckbox" type="checkbox" disabled> include upper case characters
+        </label>
+      </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+
+        $('#ckBtn').click(function(){
+
+          //reset result
+          var score = 0;
+          $('#includeNumCheckbox').prop('checked', false);
+          $('#includeLowCaseCheckbox').prop('checked', false);
+          $('#includeUpCaseCheckbox').prop('checked', false);
+          $('#includeSymbolCheckbox').prop('checked', false);
+
+          //1. ck length
+          var pwInput = $("#pwInput").val();
+          if (pwInput.length <=4)
+            score = -3;
+          else if (pwInput.length >=8)
+            score = 2;
+          else
+            score = 1;
+
+          console.log(score);
+
+          var hasNum = false;
+          var hasLow = false;
+          var hasUp = false;
+          var hasSymbol = false;
+
+          for (var i=0;i<pwInput.length;i++){
+            var cur = pwInput.charAt(i);
+            if (hasNum && hasLow && hasUp&& hasSymbol)
+              break;
+            
+            else if ((!hasNum && ckIsInt(cur))){
+              hasNum = true;
+              score++;
+              $('#includeNumCheckbox').prop('checked', true);
+            }
+            else if (!hasSymbol && ckIsSymbol(cur)){
+              hasSymbol = true;
+              score++;
+              $('#includeSymbolCheckbox').prop('checked', true);
+            }
+            else if (!hasLow && ckIsLow(cur)){
+              hasLow = true;
+              score++;
+              $('#includeLowCaseCheckbox').prop('checked', true);
+            }
+            else if (!hasUp && ckIsUp(cur)){
+              hasUp = true;
+              score++;
+              $('#includeUpCaseCheckbox').prop('checked', true);
+            }
+          }
+
+          var result = "";
+          var detail = "";
+
+          if (score<4){
+            result = "Weak";
+            detail = "Try to fulfill all the below requirements in your passwords with minimum 8 digits!";
+          }else if (score<6){
+            result = "Moderate";
+            detail = "Try to fulfill all the below requirements in your passwords with minimum 8 digits!";
+          }else{
+            result = "Strong";
+            detail = "Your password is strong! Congratulations!";
+          }
+
+          $("#result").text(result);
+          $("#detail").text(detail);
+          $("#resArea").show();
+
+        });
+
+        $("input").change(function(){
+          $(".errMsg").hide();
+        });
+        $("#pwInput").on('change keydown paste input', function(){
+            $(".errMsg").hide();
+        });
+
+
+    });
+
+    function ckIsInt(val){
+      return !isNaN(val) && parseInt(Number(val)) == val && !isNaN(parseInt(val, 10));
+    }
+
+    function ckIsSymbol(val){
+      return (/^[a-zA-Z0-9- ]*$/.test(val)==false);
+    }
+
+    function ckIsLow(val){
+      return (/^[a-z]+$/.test(val));
+    }
+
+    function ckIsUp(val){
+      return (/^[A-Z]+$/.test(val));
+    }
+
+</script>
+
+<!-- /#page-wrapper -->
+<include file="./Template/Customer/Common/footer.html" />
+<include file="./Template/Customer/Common/foot.html" />
