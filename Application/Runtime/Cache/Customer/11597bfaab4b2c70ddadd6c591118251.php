@@ -154,53 +154,56 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add new password</h1>
+            <h1 class="page-header">Password Checker</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-10 col-sm-8 col-md-6">
+    <form>
+        <div class="form-group">
+            <label for="pwInput">Check your password strength</label>
+            <input type="password" class="form-control" id="pwInput" placeholder="Input password">
+        </div>
 
-            <form class="form-horizontal" id="info-info-panel" action="/pwdManager/pwdManager/index.php/Customer/Password/add" method="post" enctype="multipart/form-data">
-                <?php if(isset($info["error"])): ?><div class="alert alert-danger" role="alert"><?php echo ($info["error"]); ?></div><?php endif; ?>
+        <button type="button" id="ckBtn" class="btn btn-info">Check</button>
 
-                <?php if(isset($info["message"])): ?><br>
-                    <div class="alert alert-success" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <p><?php echo ($info["message"]); ?></p>
-                    </div><?php endif; ?>
+        <p id="errMsg1" class="errMsg" style="display: none; font-size:10px; color: red">
+            Please input a password.
+        </p>
+    </form>
 
-                <div class="form-group">
-                    <label for="info-item" class="col-sm-3 control-label">Item</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="item" id="info-item" placeholder="Which site your password is for (like 'facebook')" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="info-name" class="col-sm-3 control-label">User name</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="name" id="info-name" placeholder="Your id/name in the site (like 'Mark')"  required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="info-password" class="col-sm-3 control-label">Password</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="password" id="info-password" placeholder="The content of your password(like '123456a')" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-5 col-sm-3">
-                        <button type="submit" class="btn btn-primary btn-block" id="submit">save</button>
-                    </div>
-                </div>
-            </form>
+    <!--Result area-->
+    <div id="resArea" style="display:none;">
+        <div class="row">
+            <div class="col-xs-1">Result: </div>
+            <div id="result" class="col-xs-6"></div>
+        </div>
+        <div class="row">
+            <div id="detail" class="col-xs-8"></div>
+            <div class="col-xs-6"></div>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id = "includeSymbolCheckbox" name="condCheckbox" type="checkbox" disabled> include sympbols
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id="includeNumCheckbox" name="condCheckbox" type="checkbox" disabled> include numbers
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id="includeLowCaseCheckbox" name="condCheckbox" type="checkbox" disabled> include lower case characters
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id="includeUpCaseCheckbox" name="condCheckbox" type="checkbox" disabled> include upper case characters
+            </label>
         </div>
     </div>
-
 
 </div>
-
+<!-- /#page-wrapper -->
 
 
 </div>
@@ -250,11 +253,106 @@ var maxTime = 600; // seconds
         $(location).attr('href', '/pwdManager/pwdManager/index.php/Home/Index/logout')
     }
 </script>
-<script type="javascript">
-    $('#add').click(function() {
-        var url = $(this).attr('href');
-        location.href = url;
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#ckBtn').click(function(){
+
+            //reset result
+            var score = 0;
+            $('#includeNumCheckbox').prop('checked', false);
+            $('#includeLowCaseCheckbox').prop('checked', false);
+            $('#includeUpCaseCheckbox').prop('checked', false);
+            $('#includeSymbolCheckbox').prop('checked', false);
+
+            //1. ck length
+            var pwInput = $("#pwInput").val();
+            if (pwInput.length <=4)
+                score = -3;
+            else if (pwInput.length >=8)
+                score = 2;
+            else
+                score = 1;
+
+            console.log(score);
+
+            var hasNum = false;
+            var hasLow = false;
+            var hasUp = false;
+            var hasSymbol = false;
+
+            for (var i=0;i<pwInput.length;i++){
+                var cur = pwInput.charAt(i);
+                if (hasNum && hasLow && hasUp&& hasSymbol)
+                    break;
+
+                else if ((!hasNum && ckIsInt(cur))){
+                    hasNum = true;
+                    score++;
+                    $('#includeNumCheckbox').prop('checked', true);
+                }
+                else if (!hasSymbol && ckIsSymbol(cur)){
+                    hasSymbol = true;
+                    score++;
+                    $('#includeSymbolCheckbox').prop('checked', true);
+                }
+                else if (!hasLow && ckIsLow(cur)){
+                    hasLow = true;
+                    score++;
+                    $('#includeLowCaseCheckbox').prop('checked', true);
+                }
+                else if (!hasUp && ckIsUp(cur)){
+                    hasUp = true;
+                    score++;
+                    $('#includeUpCaseCheckbox').prop('checked', true);
+                }
+            }
+
+            var result = "";
+            var detail = "";
+
+            if (score<4){
+                result = "Weak";
+                detail = "Try to fulfill all the below requirements in your passwords with minimum 8 digits!";
+            }else if (score<6){
+                result = "Moderate";
+                detail = "Try to fulfill all the below requirements in your passwords with minimum 8 digits!";
+            }else{
+                result = "Strong";
+                detail = "Your password is strong! Congratulations!";
+            }
+
+            $("#result").text(result);
+            $("#detail").text(detail);
+            $("#resArea").show();
+
+        });
+
+        $("input").change(function(){
+            $(".errMsg").hide();
+        });
+        $("#pwInput").on('change keydown paste input', function(){
+            $(".errMsg").hide();
+        });
+
+
     });
+
+    function ckIsInt(val){
+        return !isNaN(val) && parseInt(Number(val)) == val && !isNaN(parseInt(val, 10));
+    }
+
+    function ckIsSymbol(val){
+        return (/^[a-zA-Z0-9- ]*$/.test(val)==false);
+    }
+
+    function ckIsLow(val){
+        return (/^[a-z]+$/.test(val));
+    }
+
+    function ckIsUp(val){
+        return (/^[A-Z]+$/.test(val));
+    }
 </script>
 </body>
 </html>

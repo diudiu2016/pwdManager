@@ -6,7 +6,7 @@ class UserController extends Controller {
     public $sms_id;
     public $phone = 0;
 
-    public function _initialize() {
+//    public function _initialize() {
 //        if (is_login()) {
 //            if(get_user_status() == C('USER_CUSTOMER_STATUS')) {
 //                $this->redirect('Customer/Index/index', '', 0);

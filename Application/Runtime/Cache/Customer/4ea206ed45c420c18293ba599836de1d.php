@@ -131,7 +131,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/pwdManager/pwdManager/index.php/Generator/Generator/index"><i class="fa fa-user fa-fw"></i> Password Generator
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Generator/index"><i class="fa fa-lightbulb-o fa-fw"></i> Password Generator
+                    </a>
+                </li>
+                <li>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Checker/index"><i class="fa fa-check-square-o fa-fw"></i> Password Strength Checker
                     </a>
                 </li>
             </ul>
@@ -140,6 +144,7 @@
     </div>
     <!-- /.navbar-static-side -->
 </nav>
+
 
 <style type="text/css">
     .lj-alert h4{

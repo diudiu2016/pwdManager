@@ -154,52 +154,56 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add new password</h1>
+            <h1 class="page-header">Password Generator</h1>
         </div>
     </div>
+    <form>
+        <div class="form-group">
+            <label for="lengthInput">Length (4-50)</label>
+            <input type="length" class="form-control" id="lengthInput" placeholder="Input length">
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id = "includeSymbolCheckbox" name="condCheckbox" type="checkbox" checked> include sympbols
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id="includeNumCheckbox" name="condCheckbox" type="checkbox" checked> include numbers
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id="includeLowCaseCheckbox" name="condCheckbox" type="checkbox" checked> include lower case characters
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id="includeUpCaseCheckbox" name="condCheckbox" type="checkbox" checked> include upper case characters
+            </label>
+        </div>
+
+        <button type="button" id="genBtn" class="btn btn-info">Generate</button>
+
+        <p id="errMsg1" class="errMsg" style="display: none; font-size:10px; color: red">
+            Please input a valid number in the range 4-50 for length.
+        </p>
+        <p id="errMsg2" class="errMsg" style="display: none; font-size:10px; color: red">
+            Please select at least one condition for password generation.
+        </p>
+    </form>
+
+    <!--Result area-->
     <div class="row">
-        <div class="col-xs-10 col-sm-8 col-md-6">
-
-            <form class="form-horizontal" id="info-info-panel" action="/pwdManager/pwdManager/index.php/Customer/Password/add" method="post" enctype="multipart/form-data">
-                <?php if(isset($info["error"])): ?><div class="alert alert-danger" role="alert"><?php echo ($info["error"]); ?></div><?php endif; ?>
-
-                <?php if(isset($info["message"])): ?><br>
-                    <div class="alert alert-success" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <p><?php echo ($info["message"]); ?></p>
-                    </div><?php endif; ?>
-
-                <div class="form-group">
-                    <label for="info-item" class="col-sm-3 control-label">Item</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="item" id="info-item" placeholder="Which site your password is for (like 'facebook')" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="info-name" class="col-sm-3 control-label">User name</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="name" id="info-name" placeholder="Your id/name in the site (like 'Mark')"  required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="info-password" class="col-sm-3 control-label">Password</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="password" id="info-password" placeholder="The content of your password(like '123456a')" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-5 col-sm-3">
-                        <button type="submit" class="btn btn-primary btn-block" id="submit">save</button>
-                    </div>
-                </div>
-            </form>
+        <div class="col-xs-4">Generated password: </div>
+        <div id="result" class="col-xs-6"></div>
+        <div id="copyBtn" class="col-xs-2">
+            <button id="copyBtn" type="button" class="btn btn-secondary">Copy</button>
         </div>
     </div>
-
 
 </div>
+<!-- /#page-wrapper -->
 
 
 
@@ -250,11 +254,8 @@ var maxTime = 600; // seconds
         $(location).attr('href', '/pwdManager/pwdManager/index.php/Home/Index/logout')
     }
 </script>
-<script type="javascript">
-    $('#add').click(function() {
-        var url = $(this).attr('href');
-        location.href = url;
-    });
+<script type="text/javascript">
+
 </script>
 </body>
 </html>
