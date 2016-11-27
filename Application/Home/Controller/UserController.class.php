@@ -7,19 +7,18 @@ class UserController extends Controller {
     public $phone = 0;
 
     public function _initialize() {
-        if (is_login()) {
-            if(get_user_status() == C('USER_CUSTOMER_STATUS')) {
-                $this->redirect('Customer/Index/index', '', 0);
-            } else if(get_user_status() == C('USER_ADMINI_STATUS')) {
-                //$this->redirect('Customer/Index/index', '', 0);
-            } else {
-                set_logout();
-                $this->redirect('Home/Index/index', '', 0);
-            }
-        } else {
-            $this->redirect('Home/Index/index', '', 0);
-        }
-    }
+//        if (is_login()) {
+//            if(get_user_status() == C('USER_CUSTOMER_STATUS')) {
+//                $this->redirect('Customer/Index/index', '', 0);
+//            } else if(get_user_status() == C('USER_ADMINI_STATUS')) {
+//                //$this->redirect('Customer/Index/index', '', 0);
+//            } else {
+//                set_logout();
+//                $this->redirect('Home/Index/index', '', 0);
+//            }
+//        } else {
+//        }
+//    }
 
     // 登录页面
     public function index() {

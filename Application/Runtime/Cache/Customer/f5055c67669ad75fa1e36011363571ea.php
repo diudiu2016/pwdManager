@@ -7,44 +7,44 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/pwdManager2/pwdManager/Public/logo/favicon.ico">
+    <link rel="icon" href="/pwdManager/pwdManager/Public/logo/favicon.ico">
 
     <title><?php echo ($data["title"]); ?></title>
 
-    <link rel="icon" href="/pwdManager2/pwdManager/Public/logo/favicon.ico">
+    <link rel="icon" href="/pwdManager/pwdManager/Public/logo/favicon.ico">
 
     <!-- Bootstrap core CSS -->
-    <link href="/pwdManager2/pwdManager/Public/utils/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- fileinput CSS -->
-    <link href="/pwdManager2/pwdManager/Public/utils/fileinput/fileinput.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/fileinput/fileinput.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="/pwdManager2/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/pwdManager2/pwdManager/Public/custom/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/custom/css/sb-admin-2.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- fontawesome CSS -->
-    <link href="/pwdManager2/pwdManager/Public/utils/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/pwdManager2/pwdManager/Public/custom/css/style.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/custom/css/style.css" rel="stylesheet">
 
 
-    <script type="text/javascript" src="/pwdManager2/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/pwdManager/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]>
-    <!--<script src="/pwdManager2/pwdManager/Public/utils/ie/ie8-responsive-file-warning.js"></script>-->
+    <!--<script src="/pwdManager/pwdManager/Public/utils/ie/ie8-responsive-file-warning.js"></script>-->
     <![endif]-->
-    <!--<script src="/pwdManager2/pwdManager/Public/utils/ie/ie-emulation-modes-warning.js"></script>-->
+    <!--<script src="/pwdManager/pwdManager/Public/utils/ie/ie-emulation-modes-warning.js"></script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="/pwdManager2/pwdManager/Public/utils/html5/html5shiv.min.js"></script>
-    <script src="/pwdManager2/pwdManager/Public/utils/html5/respond.min.js"></script>
+    <script src="/pwdManager/pwdManager/Public/utils/html5/html5shiv.min.js"></script>
+    <script src="/pwdManager/pwdManager/Public/utils/html5/respond.min.js"></script>
     <script src="//cdn.bootcss.com/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js"></script>
     <![endif]-->
 </head>
@@ -91,17 +91,17 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/pwdManager2/pwdManager/index.php/Customer/Index/index">Personal Information</a></li>
-                                    <li><a href="/pwdManager2/pwdManager/index.php/Customer/Password/index">My Passwords</a></li>
+                                    <li><a href="/pwdManager/pwdManager/index.php/Customer/Index/index">Personal Information</a></li>
+                                    <li><a href="/pwdManager/pwdManager/index.php/Customer/Password/index">My Passwords</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="/pwdManager2/pwdManager/index.php/Home/Index/logout">Log Out</a></li>
+                                    <li><a href="/pwdManager/pwdManager/index.php/Home/Index/logout">Log Out</a></li>
                                 </ul>
                             </li>
 
                         </ul><?php break;?>
                     <?php case "2": ?><li><a class="btn btn-" href="#"><?php echo (session('user_nickname')); ?></a></li><?php break;?>
                     <?php default: ?>
-                    <li class="active"><a class="btn btn-default" href="/pwdManager2/pwdManager/index.php/Home/Index/index">Log In</a></li><?php endswitch;?>
+                    <li class="active"><a class="btn btn-default" href="/pwdManager/pwdManager/index.php/Home/Index/index">Log In</a></li><?php endswitch;?>
             </ul>
         </div>
     </div>
@@ -110,7 +110,7 @@
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Customer/Index/index"><i class="fa fa-list-alt fa-fw"></i> Overview
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Index/index"><i class="fa fa-list-alt fa-fw"></i> Overview
                     </a>
                 </li>
                 <li>
@@ -119,19 +119,19 @@
                     </a>
                     <ul class="nav nav-second-level">
                     <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Customer/Password/index">My Passwords</a>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Password/index">My Passwords</a>
                     </li>
                     <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Customer/Password/add">Add New Passwords</a>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Password/add">Add New Passwords</a>
                     </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Customer/Index/profile"><i class="fa fa-user fa-fw"></i> My Account
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Index/profile"><i class="fa fa-user fa-fw"></i> My Account
                     </a>
                 </li>
                 <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Generator/Generator/index"><i class="fa fa-user fa-fw"></i> Password Generator
+                    <a href="/pwdManager/pwdManager/index.php/Generator/Generator/index"><i class="fa fa-user fa-fw"></i> Password Generator
                     </a>
                 </li>
             </ul>
@@ -155,7 +155,7 @@
     <div class="row">
         <div class="col-xs-10 col-sm-8 col-md-6">
 
-            <form class="form-horizontal" id="info-info-panel" action="/pwdManager2/pwdManager/index.php/Customer/Password/add" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" id="info-info-panel" action="/pwdManager/pwdManager/index.php/Customer/Password/add" method="post" enctype="multipart/form-data">
                 <?php if(isset($info["error"])): ?><div class="alert alert-danger" role="alert"><?php echo ($info["error"]); ?></div><?php endif; ?>
 
                 <?php if(isset($info["message"])): ?><br>
@@ -201,30 +201,30 @@
 </div>
 
 <!--jQuery-->
-<script type="text/javascript" src="/pwdManager2/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/pwdManager/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
 
 <!--highcharts-->
-<script src="/pwdManager2/pwdManager/Public/utils/highcharts/highcharts.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/highcharts/highcharts.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/bootstrap/js/bootstrap.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- canvas-to-blob JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/fileinput/canvas-to-blob.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/fileinput/canvas-to-blob.min.js"></script>
 
 <!-- fileinput JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/fileinput/fileinput.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/fileinput/fileinput.min.js"></script>
 
 <!-- fileinput JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/fileinput/fileinput_locale_zh.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/fileinput/fileinput_locale_zh.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/custom/js/sb-admin-2.js"></script>
+<script src="/pwdManager/pwdManager/Public/custom/js/sb-admin-2.js"></script>
 
-<!--<script src="/pwdManager2/pwdManager/Public/custom/js/admin.js"></script>-->
+<!--<script src="/pwdManager/pwdManager/Public/custom/js/admin.js"></script>-->
 
 <!--Auto logout function-->
 <script>
@@ -242,7 +242,7 @@ var maxTime = 600; // seconds
     }, 1000)
     function ShowInvalidLoginMessage(){
         alert('Due to no operations within 10 minutes, you are being automatically logout.');
-        $(location).attr('href', '/pwdManager2/pwdManager/index.php/Home/Index/logout')
+        $(location).attr('href', '/pwdManager/pwdManager/index.php/Home/Index/logout')
     }
 </script>
 <script type="javascript">

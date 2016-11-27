@@ -7,34 +7,34 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/security/pwdManager/Public/logo/favicon.ico">
+    <link rel="icon" href="/pwdManager/pwdManager/Public/logo/favicon.ico">
 
     <title><?php echo ($data["title"]); ?></title>
 
-    <link rel="icon" href="/security/pwdManager/Public/logo/favicon.ico">
+    <link rel="icon" href="/pwdManager/pwdManager/Public/logo/favicon.ico">
 
     <!-- Bootstrap core CSS -->
-    <link href="/security/pwdManager/Public/utils/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- fontawesome CSS -->
-    <link href="/security/pwdManager/Public/utils/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/security/pwdManager/Public/custom/css/style.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/custom/css/style.css" rel="stylesheet">
 
 
-    <script type="text/javascript" src="/security/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/pwdManager/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]>
-    <!--<script src="/security/pwdManager/Public/utils/ie/ie8-responsive-file-warning.js"></script>-->
+    <!--<script src="/pwdManager/pwdManager/Public/utils/ie/ie8-responsive-file-warning.js"></script>-->
     <![endif]-->
-    <!--<script src="/security/pwdManager/Public/utils/ie/ie-emulation-modes-warning.js"></script>-->
+    <!--<script src="/pwdManager/pwdManager/Public/utils/ie/ie-emulation-modes-warning.js"></script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="/security/pwdManager/Public/utils/html5/html5shiv.min.js"></script>
-    <script src="/security/pwdManager/Public/utils/html5/respond.min.js"></script>
+    <script src="/pwdManager/pwdManager/Public/utils/html5/html5shiv.min.js"></script>
+    <script src="/pwdManager/pwdManager/Public/utils/html5/respond.min.js"></script>
 
     <![endif]-->
 </head>
@@ -65,7 +65,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand head" href="/security/pwdManager/index.php/Home/index/index">Password Manager <small>-- Your best assistant</small></a>
+            <a class="navbar-brand head" href="/pwdManager/pwdManager/index.php/Home/index/index">Password Manager <small>-- Your best assistant</small></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
@@ -80,24 +80,24 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/security/pwdManager/index.php/Customer/Index/index">Personal Information</a></li>
-                                    <li><a href="/security/pwdManager/index.php/Customer/Password/index">My Passwords</a></li>
+                                    <li><a href="/pwdManager/pwdManager/index.php/Customer/Index/index">Personal Information</a></li>
+                                    <li><a href="/pwdManager/pwdManager/index.php/Customer/Password/index">My Passwords</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="/security/pwdManager/index.php/Home/Index/logout">Log Out</a></li>
+                                    <li><a href="/pwdManager/pwdManager/index.php/Home/Index/logout">Log Out</a></li>
                                 </ul>
                             </li>
 
                         </ul><?php break;?>
                     <?php case "2": ?><li><a class="btn btn-" href="#"><?php echo (session('user_nickname')); ?></a></li><?php break;?>
                     <?php default: ?>
-                    <li class="active"><a class="btn btn-default" href="/security/pwdManager/index.php/Home/Index/index">Log In</a></li><?php endswitch;?>
+                    <li class="active"><a class="btn btn-default" href="/pwdManager/pwdManager/index.php/Home/Index/index">Log In</a></li><?php endswitch;?>
             </ul>
         </div>
     </div>
 </nav>
 <style type="text/css">
     body{
-        background-image: url(/security/pwdManager/Public/picture/bg1.jpg);
+        background-image: url(/pwdManager/pwdManager/Public/picture/bg1.jpg);
         background-size: cover;
         position:absolute;
         width: 100%;
@@ -129,7 +129,7 @@
             </div>
         </div>
         <div class="form-bottom">
-            <form role="form" action="/security/pwdManager/index.php/Home/User/index" method="post" id="loginForm" data-parsley-validate>
+            <form role="form" action="/pwdManager/pwdManager/index.php/Home/User/index" method="post" id="loginForm" data-parsley-validate>
                 <div class="form-group">
                     Email :
                     <label class="sr-only" for="form-email">Email</label>
@@ -148,7 +148,7 @@
 
                 <button type="submit" class="btn btn-block sign-up-main btn-primary" ><strong>Log In</strong></button>
                 <br>
-                <span style="float: right"><small>Do not have an account? <strong><a href="/security/pwdManager/index.php/Home/User/register">Sign up</a></strong> instead!</small></span>
+                <span style="float: right"><small>Do not have an account? <strong><a href="/pwdManager/pwdManager/index.php/Home/User/register">Sign up</a></strong> instead!</small></span>
                 <br>
             </form>
         </div>
@@ -161,30 +161,30 @@
 </div>
 
 <!--jQuery-->
-<script type="text/javascript" src="/security/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/pwdManager/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
 
 <!--highcharts-->
-<script src="/security/pwdManager/Public/utils/highcharts/highcharts.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/highcharts/highcharts.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/security/pwdManager/Public/utils/bootstrap/js/bootstrap.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- canvas-to-blob JavaScript -->
-<script src="/security/pwdManager/Public/utils/fileinput/canvas-to-blob.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/fileinput/canvas-to-blob.min.js"></script>
 
 <!-- fileinput JavaScript -->
-<script src="/security/pwdManager/Public/utils/fileinput/fileinput.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/fileinput/fileinput.min.js"></script>
 
 <!-- fileinput JavaScript -->
-<script src="/security/pwdManager/Public/utils/fileinput/fileinput_locale_zh.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/fileinput/fileinput_locale_zh.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="/security/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/security/pwdManager/Public/custom/js/sb-admin-2.js"></script>
+<script src="/pwdManager/pwdManager/Public/custom/js/sb-admin-2.js"></script>
 
-<!--<script src="/security/pwdManager/Public/custom/js/admin.js"></script>-->
+<!--<script src="/pwdManager/pwdManager/Public/custom/js/admin.js"></script>-->
 
 
 </body>
