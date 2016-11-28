@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+import('ORG.Mail');
 class UserController extends Controller {
 
     public $sms_id;
@@ -93,7 +94,20 @@ class UserController extends Controller {
                         $ua['password2'] = $password2;
                         $result2 = $UserAuthenticate->data($ua)->add();
                         if($result2){
-                            redirect('../Index/index', 3, 'Register successfully! Please wait for a moment...');
+                            $content = "
+                            Dear $nickname, <br/><br/>
+                            Thanks for signing up for the Password Manager! You can now enjoy our all-in-one secure password managaging service!<br/><br/>
+                            (If you receive this email without registered for our service, please contact us to report impersonation.)<br/><br/>
+                            Best Regards,<br/>
+                            Password Manager Team
+                            ";
+                            if(sendmail($email,'Welcome to Password Manager',$content,'The Password Manager Team')){
+                            redirect('../Index/index', 3, 'Register successfully! Please wait for a moment...');}
+                            else{
+                                $res['code'] = 4;
+                                $res['error'] = 'failed to add user';
+                                $this->ajaxReturn($res);
+                            }
                         } else {
                             $res['code'] = 2;
                             $res['error'] = 'failed to add user';
