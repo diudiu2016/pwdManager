@@ -15,6 +15,10 @@ return array(
     'DEFAULT_MODULE'     => 'Home',
     'MODULE_ALLOW_LIST'    =>    array('Home', 'Customer'),
     'SESSION_AUTO_START' => true,
+	
+    'MAIL_CHARSET'=>'UTF-8',//编码
+    'MAIL_AUTH'=>true,//邮箱认证
+    'MAIL_HTML'=>true,//true HTML格式 false TXT格式
 
     'USER_CUSTOMER_STATUS'         =>  1, //用户
     'USER_ADMINI_STATUS'           =>  2 //管理员
