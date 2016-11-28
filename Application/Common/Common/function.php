@@ -261,3 +261,40 @@ function get_order_number() {
 function set_card_password(){
     return mt_rand(100000, 999999);
 }
+
+function sendmail($tomail,$title,$content){
+/*邮件设置信息*/
+        $email_set = C('EMAIL_SET');
+        Vendor('phpmailer.class#phpmailer');
+        Vendor("phpmailer.class#smtp"); //可选,否则会在class.phpmailer.php中包含
+        
+        $mail = new PHPMailer(true); //实例化PHPMailer类,true表示出现错误时抛出异常
+        
+          $mail->IsSMTP(); // 使用SMTP
+          $mail->CharSet ="UTF-8";//设定邮件编码
+          $mail->SMTPDebug  = 0;                     // 启用SMTP调试 1 = errors  2 =  messages
+          $mail->SMTPAuth   = true;                  // 服务器需要验证
+          $mail->Port       = "587";                    // 设置端口
+          $mail->Username   = "pwdmanager3334@gmail.com"; //SMTP服务器的用户帐号
+          $mail->Password   = "pwdManager3334root";       //SMTP服务器的用户密码
+
+          if (is_array($tomail)){
+              foreach ($tomail as $m){
+                   $mail->AddAddress($m, 'user'); 
+              }
+          }else{
+              $mail->AddAddress($tomail, 'user');
+          }
+         
+          $mail->SetFrom('pwdmanager3334@gmail.com','Password Manager Team');
+          $mail->Subject = $title;
+        
+          //以下是邮件内容相关
+          $mail->Body = $content;
+          $mail->IsHTML(true);
+        
+        $mail->SMTPSecure = "tls";
+        $mail->Host       = "smtp.gmail.com"; // SMTP server
+        return $mail->Send()? true:false;
+}
+?>
