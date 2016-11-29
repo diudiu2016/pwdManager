@@ -35,7 +35,8 @@ class UserController extends Controller {
                 if ($find) {
                     $UserAuthenticate = M("user_authenticate");
                     $where2['user_id'] = $find['user_id'];
-                    $where2['password'] = $password;
+                    $where2['password'] = hash('sha256',$password);
+                    print_r($where2);
                     $find2 = $UserAuthenticate->where($where2)->find();
 
                     if($find2){
@@ -89,8 +90,8 @@ class UserController extends Controller {
                     if($result){
                         $UserAuthenticate = M("user_authenticate");
                         $ua['user_id'] = $result;
-                        $ua['password'] = $password;
-                        $ua['password2'] = $password2;
+                        $ua['password'] = hash('sha256',$password);
+                        $ua['password2'] = hash('sha256',$password2);
                         $result2 = $UserAuthenticate->data($ua)->add();
                         if($result2){
                             redirect('../Index/index', 3, 'Register successfully! Please wait for a moment...');

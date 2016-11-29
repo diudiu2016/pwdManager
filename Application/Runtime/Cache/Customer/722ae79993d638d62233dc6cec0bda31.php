@@ -8,44 +8,44 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/pwdManager2/pwdManager/Public/logo/favicon.ico">
+    <link rel="icon" href="/pwdManager/pwdManager/Public/logo/favicon.ico">
 
     <title><?php echo ($data["title"]); ?></title>
 
-    <link rel="icon" href="/pwdManager2/pwdManager/Public/logo/favicon.ico">
+    <link rel="icon" href="/pwdManager/pwdManager/Public/logo/favicon.ico">
 
     <!-- Bootstrap core CSS -->
-    <link href="/pwdManager2/pwdManager/Public/utils/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- fileinput CSS -->
-    <link href="/pwdManager2/pwdManager/Public/utils/fileinput/fileinput.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/fileinput/fileinput.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="/pwdManager2/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/pwdManager2/pwdManager/Public/custom/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/custom/css/sb-admin-2.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- fontawesome CSS -->
-    <link href="/pwdManager2/pwdManager/Public/utils/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/utils/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/pwdManager2/pwdManager/Public/custom/css/style.css" rel="stylesheet">
+    <link href="/pwdManager/pwdManager/Public/custom/css/style.css" rel="stylesheet">
 
 
-    <script type="text/javascript" src="/pwdManager2/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/pwdManager/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]>
-    <!--<script src="/pwdManager2/pwdManager/Public/utils/ie/ie8-responsive-file-warning.js"></script>-->
+    <!--<script src="/pwdManager/pwdManager/Public/utils/ie/ie8-responsive-file-warning.js"></script>-->
     <![endif]-->
-    <!--<script src="/pwdManager2/pwdManager/Public/utils/ie/ie-emulation-modes-warning.js"></script>-->
+    <!--<script src="/pwdManager/pwdManager/Public/utils/ie/ie-emulation-modes-warning.js"></script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="/pwdManager2/pwdManager/Public/utils/html5/html5shiv.min.js"></script>
-    <script src="/pwdManager2/pwdManager/Public/utils/html5/respond.min.js"></script>
+    <script src="/pwdManager/pwdManager/Public/utils/html5/html5shiv.min.js"></script>
+    <script src="/pwdManager/pwdManager/Public/utils/html5/respond.min.js"></script>
     <script src="//cdn.bootcss.com/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js"></script>
     <![endif]-->
 </head>
@@ -92,17 +92,17 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/pwdManager2/pwdManager/index.php/Customer/Index/index">Personal Information</a></li>
-                                    <li><a href="/pwdManager2/pwdManager/index.php/Customer/Password/index">My Passwords</a></li>
+                                    <li><a href="/pwdManager/pwdManager/index.php/Customer/Index/index">Personal Information</a></li>
+                                    <li><a href="/pwdManager/pwdManager/index.php/Customer/Password/index">My Passwords</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="/pwdManager2/pwdManager/index.php/Home/Index/logout">Log Out</a></li>
+                                    <li><a href="/pwdManager/pwdManager/index.php/Home/Index/logout">Log Out</a></li>
                                 </ul>
                             </li>
 
                         </ul><?php break;?>
                     <?php case "2": ?><li><a class="btn btn-" href="#"><?php echo (session('user_nickname')); ?></a></li><?php break;?>
                     <?php default: ?>
-                    <li class="active"><a class="btn btn-default" href="/pwdManager2/pwdManager/index.php/Home/Index/index">Log In</a></li><?php endswitch;?>
+                    <li class="active"><a class="btn btn-default" href="/pwdManager/pwdManager/index.php/Home/Index/index">Log In</a></li><?php endswitch;?>
             </ul>
         </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Customer/Index/index"><i class="fa fa-list-alt fa-fw"></i> Overview
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Index/index"><i class="fa fa-list-alt fa-fw"></i> Overview
                     </a>
                 </li>
                 <li>
@@ -120,19 +120,23 @@
                     </a>
                     <ul class="nav nav-second-level">
                     <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Customer/Password/index">My Passwords</a>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Password/index">My Passwords</a>
                     </li>
                     <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Customer/Password/add">Add New Passwords</a>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Password/add">Add New Passwords</a>
                     </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Customer/Index/profile"><i class="fa fa-user fa-fw"></i> My Account
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Index/profile"><i class="fa fa-user fa-fw"></i> My Account
                     </a>
                 </li>
                 <li>
-                    <a href="/pwdManager2/pwdManager/index.php/Generator/Generator/index"><i class="fa fa-user fa-fw"></i> Password Generator
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Generator/index"><i class="fa fa-lightbulb-o fa-fw"></i> Password Generator
+                    </a>
+                </li>
+                <li>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Checker/index"><i class="fa fa-check-square-o fa-fw"></i> Password Strength Checker
                     </a>
                 </li>
             </ul>
@@ -141,6 +145,7 @@
     </div>
     <!-- /.navbar-static-side -->
 </nav>
+
 <style type="text/css">
     .lj-alert h4{
         font-weight: 100;
@@ -154,138 +159,189 @@
     </div>
     <div class="col-xs-10 col-sm-8 col-md-6">
 
-        <form class="form-horizontal" id="info-info-panel" action="/pwdManager2/pwdManager/index.php/Customer/Password/read" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" id="info-info-panel"  enctype="multipart/form-data">
             <?php if(isset($info["error"])): ?><div class="alert alert-danger" role="alert"><?php echo ($info["error"]); ?></div><?php endif; ?>
             
-            <div id="inputPart">
-                <p>
-                    Please enter the <span id="digit1"></span>, <span id="digit2"></span>, <span id="digit3"></span> digit of your second password.
-                </p>
-                <input class="col-sm-1" type="text" class="form-control" name="p1" id="pw1" maxlength="1" required>
-                <input class="col-sm-1" type="text" class="form-control" name="p2" id="pw2" maxlength="1" required>
-                <input class="col-sm-1" type="text" class="form-control" name="p3" id="pw3" maxlength="1" required>
-                <div class="form-group">
-                    <div class="col-sm-offset-5 col-sm-3">
-                        <button type="submit" class="btn btn-primary btn-block" id="readBtn">Read</button>
-                    </div>
+            <!--<div id="inputPart">-->
+                <!--<p>-->
+                    <!--Please enter the <span id="digit1"></span>, <span id="digit2"></span>, <span id="digit3"></span> digit of your second password.-->
+                <!--</p>-->
+                <!--<input class="col-sm-1" type="text" class="form-control" name="p1" id="pw1" maxlength="1" required>-->
+                <!--<input class="col-sm-1" type="text" class="form-control" name="p2" id="pw2" maxlength="1" required>-->
+                <!--<input class="col-sm-1" type="text" class="form-control" name="p3" id="pw3" maxlength="1" required>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-offset-5 col-sm-3">-->
+                        <!--<button type="submit" class="btn btn-primary btn-block" id="readBtn">Read</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<input type="text" class="form-control" name="p4" id="p4" style="display:none;" value="0">-->
+            <!--<input type="text" class="form-control" name="p5" id="p5" style="display:none;" value="0">-->
+            <!--<input type="text" class="form-control" name="p6" id="p6" style="display:none;" value="0">-->
+            <!--<input type="text" class="form-control" name="p7" id="p7" style="display:none;" value="0">-->
+            <input style="display: none;" id="pwd-id" value="<?php echo ($info["pwd_id"]); ?>">
+            <div id="inputPart" class="row">
+                <label class="col-sm-12">Please input your safety password : </label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" id="safety-password">
+                </div>
+                <div class="col-sm-3">
+                    <input type="button" class="btn btn-primary btn-block" value="Read" onclick="pwd_check();">
                 </div>
             </div>
 
-            <input type="text" class="form-control" name="p4" id="p4" style="display:none;" value="0">
-            <input type="text" class="form-control" name="p5" id="p5" style="display:none;" value="0">
-            <input type="text" class="form-control" name="p6" id="p6" style="display:none;" value="0">
-            <input type="text" class="form-control" name="p7" id="p7" style="display:none;" value="0">
+            <hr>
 
-            <div id="resultPart">
+            <div id="resultPart" style="display: none;">
                 <div class="row">
-                  <div class="col-xs-4">Your password: </div>
-                  <div id="result" class="col-xs-6"><?php echo ($info["pw"]); ?></div>
-                  <div id="copyBtn" class="col-xs-2">
-                      <button id="copyBtn" type="button" class="btn btn-secondary">Copy</button>
+                  <label class="col-sm-12">Your password: </label>
+                    <div class="col-sm-8">
+                        <input type="password" id="result" class="col-sm-8 form-control">
+                    </div>
+                  <div class="col-sm-3">
+                      <button id="copyBtn" type="button" class="btn btn-secondary btn-block">Copy</button>
                   </div>
                 </div>
-                </div>
+            </div>
         </form>
     </div>
 </div>
+
+<script src="/pwdManager/pwdManager/Public/utils/encryption/sha256.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/encryption/aes.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/encryption/aes.ctr.js"></script>
 <script>
+    function pwd_check(){
+        var pwd = $('#safety-password').val();
+        var url = "/pwdManager/pwdManager/index.php/Customer/Password/check_safety_pwd";
+        var data = {pwd : pwd};
+        $.post(url, data, function (res) {
+            if(res.code==0){
+                pwd_read(res.salt);
+            } else {
+                alert("Wrong safety password!");
+            }
+        });
+    }
+
+    function pwd_read(salt){
+        var pwd_id = $('#pwd-id').val();
+        var pwd = $('#safety-password').val();
+        var enc_pwd = pwd+salt;
+        var data = {pwd_id : pwd_id};
+        var url = "/pwdManager/pwdManager/index.php/Customer/Password/read_pwd";
+        $.post(url, data, function (res) {
+            if(res.code==0){
+                var ciphertext = res.pwd;
+                var final_pwd = Aes.Ctr.decrypt(ciphertext,enc_pwd,256);
+                document.getElementById("result").innerHTML = final_pwd;
+                document.getElementById("result").value = final_pwd;
+                document.getElementById("resultPart").style.display = "block";
+            } else {
+                alert(res.code);
+                alert("Failed to read your password, please try again!");
+            }
+        });
+    }
+
     $(document).ready(function(){
 
-        //select 3 random digit and show to user
-        $('#digit1').text(<?php print($info['randDigit1']);?>);
-        $('#digit2').text(<?php print($info['randDigit2']);?>);
-        $('#digit3').text(<?php print($info['randDigit3']);?>);
-        $('#p4').val(<?php print($info['randDigit1']);?>);
-        $('#p5').val(<?php print($info['randDigit2']);?>);
-        $('#p6').val(<?php print($info['randDigit3']);?>);
-
-        //hide input part if result is got
-        if (<?php print($info['found']);?> == true){
-            $('#inputPart').hide();
-        }else {
-            $('#resultPart').hide();
-        }
-
-        //set requested pw id
-        var x = location.href.split("/");
-        var id = x[x.length-1]
-        $('#p7').val(id);
+//        //select 3 random digit and show to user
+//        $('#digit1').text(<?php print($info['randDigit1']);?>);
+//        $('#digit2').text(<?php print($info['randDigit2']);?>);
+//        $('#digit3').text(<?php print($info['randDigit3']);?>);
+//        $('#p4').val(<?php print($info['randDigit1']);?>);
+//        $('#p5').val(<?php print($info['randDigit2']);?>);
+//        $('#p6').val(<?php print($info['randDigit3']);?>);
+//
+//        //hide input part if result is got
+//        if (<?php print($info['found']);?> == true){
+//            $('#inputPart').hide();
+//        }else {
+//            $('#resultPart').hide();
+//        }
+//
+//        //set requested pw id
+//        var x = location.href.split("/");
+//        var id = x[x.length-1]
+//        $('#p7').val(id);
 
         //copy function
         $("#copyBtn").on('click', copyToClipboard);
 
         function copyToClipboardFF(text) {
-      window.prompt ("Copy to clipboard: Ctrl C, Enter", text);
-    }
+            window.prompt ("Copy to clipboard: Ctrl C, Enter", text);
+        }
 
-    function copyToClipboard() {
-      var input = $("#result");
+        function copyToClipboard() {
+          var input = $("#result");
 
-      var success = true,
-         range = document.createRange(),
-         selection;
+          var success = true,
+             range = document.createRange(),
+             selection;
 
-     // For IE.
-     if (window.clipboardData) {
-       window.clipboardData.setData("Text", input.text());
-     } else {
-       // Create a temporary element off screen.
-       var tmpElem = $('<div>');
-       tmpElem.css({
-         position: "absolute",
-         left:     "-1000px",
-         top:      "-1000px",
-       });
-       // Add the input value to the temp element.
-       tmpElem.text(input.text());
-       $("body").append(tmpElem);
-       // Select temp element.
-       range.selectNodeContents(tmpElem.get(0));
-       selection = window.getSelection ();
-       selection.removeAllRanges ();
-       selection.addRange (range);
-       // Lets copy.
-       try { 
-         success = document.execCommand ("copy", false, null);
-       }
-       catch (e) {
-         copyToClipboardFF(input.val());
-       }
-       if (success) {
-         // remove temp element.
-         tmpElem.remove();
+         // For IE.
+         if (window.clipboardData) {
+           window.clipboardData.setData("Text", input.text());
+         } else {
+           // Create a temporary element off screen.
+           var tmpElem = $('<div>');
+           tmpElem.css({
+             position: "absolute",
+             left:     "-1000px",
+             top:      "-1000px",
+           });
+           // Add the input value to the temp element.
+           tmpElem.text(input.text());
+           $("body").append(tmpElem);
+           // Select temp element.
+           range.selectNodeContents(tmpElem.get(0));
+           selection = window.getSelection ();
+           selection.removeAllRanges ();
+           selection.addRange (range);
+           // Lets copy.
+           try {
+             success = document.execCommand ("copy", false, null);
+           }
+           catch (e) {
+             copyToClipboardFF(input.val());
+           }
+           if (success) {
+             // remove temp element.
+             tmpElem.remove();
+              }
           }
-      }
-    }
+        }
     });
 </script>
 </div>
 
 <!--jQuery-->
-<script type="text/javascript" src="/pwdManager2/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/pwdManager/pwdManager/Public/utils/jquery/jquery-1.10.2.min.js"></script>
 
 <!--highcharts-->
-<script src="/pwdManager2/pwdManager/Public/utils/highcharts/highcharts.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/highcharts/highcharts.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/bootstrap/js/bootstrap.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- canvas-to-blob JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/fileinput/canvas-to-blob.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/fileinput/canvas-to-blob.min.js"></script>
 
 <!-- fileinput JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/fileinput/fileinput.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/fileinput/fileinput.min.js"></script>
 
 <!-- fileinput JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/fileinput/fileinput_locale_zh.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/fileinput/fileinput_locale_zh.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/pwdManager2/pwdManager/Public/custom/js/sb-admin-2.js"></script>
+<script src="/pwdManager/pwdManager/Public/custom/js/sb-admin-2.js"></script>
 
-<!--<script src="/pwdManager2/pwdManager/Public/custom/js/admin.js"></script>-->
+<!--<script src="/pwdManager/pwdManager/Public/custom/js/admin.js"></script>-->
 
 <!--Auto logout function-->
 <script>
@@ -303,7 +359,7 @@ var maxTime = 600; // seconds
     }, 1000)
     function ShowInvalidLoginMessage(){
         alert('Due to no operations within 10 minutes, you are being automatically logout.');
-        $(location).attr('href', '/pwdManager2/pwdManager/index.php/Home/Index/logout')
+        $(location).attr('href', '/pwdManager/pwdManager/index.php/Home/Index/logout')
     }
 </script>
 </body>

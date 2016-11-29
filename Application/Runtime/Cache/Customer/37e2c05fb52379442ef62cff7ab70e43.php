@@ -167,6 +167,18 @@
         </div>
     </div>
 
+    <!--<div class="row">-->
+        <!--<input type="text" id="psd">-->
+        <!--<input type="text" id="inp">-->
+        <!--<div id="test">-->
+
+        <!--</div>-->
+        <!--<div id="result">-->
+
+        <!--</div>-->
+        <!--<button id="testBtn" onclick="test2();">test</button>-->
+    <!--</div>-->
+
 
 </div>
 <!-- /#page-wrapper -->
@@ -218,6 +230,21 @@ var maxTime = 600; // seconds
     function ShowInvalidLoginMessage(){
         alert('Due to no operations within 10 minutes, you are being automatically logout.');
         $(location).attr('href', '/pwdManager/pwdManager/index.php/Home/Index/logout')
+    }
+</script>
+<script src="/pwdManager/pwdManager/Public/utils/encryption/sha256.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/encryption/aes.js"></script>
+<script src="/pwdManager/pwdManager/Public/utils/encryption/aes.ctr.js"></script>
+<script type="text/javascript">
+    function test(){
+        document.getElementById("test").innerHTML = sha256_digest(document.getElementById("inp").value);
+    }
+    function test2(){
+        var plaintext = document.getElementById("inp").value;
+        var psd = document.getElementById("psd").value;
+        var cipher = Aes.Ctr.encrypt(plaintext, psd, 256);
+        document.getElementById("test").innerHTML =  cipher;
+        document.getElementById("result").innerHTML =  Aes.Ctr.decrypt(cipher,psd,256);
     }
 </script>
 

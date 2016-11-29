@@ -27,26 +27,48 @@ class PasswordController extends Controller {
         $this->assign('data',$data);
         $this->display();
     }
-
+    public function check_safety_pwd(){
+        if(IS_POST) {
+            $salt = hash('sha256',I('post.pwd', ''));
+            $UA = M('user_authenticate');
+            $where['user_id'] = get_user_id();
+            $where['password2'] = $salt;
+            $result = $UA->where($where)->find();
+            if($result){
+                //if safety password matches
+                $res['code'] = 0;
+                $res['salt'] = $salt;
+                $this->ajaxReturn($res);
+            } else {
+                $res['code'] = 1;
+                $this->ajaxReturn($res);
+            }
+        }
+    }
     public function add(){
         $data['title'] = "Add New Passwords";
         if(IS_POST){
             $Passwords = M('user_passwords');
             $add['item'] = I('post.item', '');
             $add['user_name'] = I('post.name','');
-            $add['password'] = I('post.password', '');
+            $add['password'] = I('post.pwd', '');
             $add['user_id'] = get_user_id();
+            //dump($add);
             $result = $Passwords->data($add)->add();
             if($result){
-                $info['message'] = 'Successfully save the password!';
-                $this->assign('info', $info);
-                $this->assign('data',$data);
-                $this->display();
+//                $info['message'] = 'Successfully save the password!';
+//                $this->assign('info', $info);
+//                $this->assign('data',$data);
+//                $this->display();
+                $res['code'] = 0;
+                $this->ajaxReturn($res);
             } else {
-                $info['error'] = 'Fail to save the password, please try again!';
-                $this->assign('info', $info);
-                $this->assign('data',$data);
-                $this->display();
+//                $info['error'] = 'Fail to save the password, please try again!';
+//                $this->assign('info', $info);
+//                $this->assign('data',$data);
+//                $this->display();
+                $res['code'] = 1;
+                $this->ajaxReturn($res);
             }
         } else {
             $this->assign('data',$data);
@@ -54,6 +76,22 @@ class PasswordController extends Controller {
         }
     }
 
+    public function read_pwd(){
+        if(IS_POST){
+            $Passwords = M('user_passwords');
+            $where['user_id'] = get_user_id();
+            $where['password_id'] = I('post.pwd_id', 0);
+            $result = $Passwords->where($where)->find();
+            if($result){
+                $res['code'] = 0;
+                $res['pwd'] = $result['password'];
+                $this->ajaxReturn($res);
+            } else {
+                $res['code'] = 1;
+                $this->ajaxReturn($res);
+            }
+        }
+    }
     public function read(){
         $info["pw"]="";
         $info["found"]="false";
@@ -80,11 +118,11 @@ class PasswordController extends Controller {
             sort($ranDigit);
 
             if ($find) {
-                $data['title'] = "Enter Second Password";
+                $data['title'] = "Read Password";
                 $info['randDigit1'] = $ranDigit[0];
                 $info['randDigit2'] = $ranDigit[1];
                 $info['randDigit3'] = $ranDigit[2];
-
+                $info['pwd_id'] = $pwd_id;
                 $this->assign('info', $info);
                 $this->assign('data', $data);
                 $this->display();
