@@ -596,3 +596,266 @@ SQL: SELECT `user_id`,`nickname`,`status` FROM `pwd_user` WHERE `email` = 'bazim
 SQL: SHOW COLUMNS FROM `pwd_user_authenticate` [ RunTime:0.0010s ]
 SQL: SELECT * FROM `pwd_user_authenticate` WHERE `user_id` = 30 AND `password` = '04e94dfb3e43164c0f7058e7c7f1b169d84704b4bca863a4b8552187af5b7217' LIMIT 1   [ RunTime:0.0000s ]
 
+[ 2016-11-29T16:15:39+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/Index/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-29T16:15:39+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_status D:\AppServ\www\pwdManager\pwdManager\Application\Runtime\Cache\Home\ccc714bf1ad7378d61a4beb8be3a2914.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-29T16:17:25+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: user_status D:\AppServ\www\pwdManager\pwdManager\Application\Runtime\Cache\Home\0cc96d85a5e6336bef62f54f9bf941a9.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-29T16:17:55+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `pwd_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `pwd_user` WHERE `email` = '642340153@qq.com' LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `pwd_user` (`email`,`nickname`,`status`) VALUES ('642340153@qq.com','111','1') [ RunTime:0.0800s ]
+SQL: SHOW COLUMNS FROM `pwd_user_authenticate` [ RunTime:0.0010s ]
+SQL: INSERT INTO `pwd_user_authenticate` (`user_id`,`password`,`password2`) VALUES ('31','bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a','ee79976c9380d5e337fc1c095ece8c8f22f91f306ceeb161fa51fecede2c4ba1') [ RunTime:0.0210s ]
+ERR: Extension missing: openssl
+
+[ 2016-11-29T16:19:23+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `pwd_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `pwd_user` WHERE `email` = '642340153@qq.com' LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-29T16:19:27+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_status D:\AppServ\www\pwdManager\pwdManager\Application\Runtime\Cache\Home\0cc96d85a5e6336bef62f54f9bf941a9.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-29T16:21:23+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `pwd_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `pwd_user` WHERE `email` = '642340153@qq.com' LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `pwd_user` (`email`,`nickname`,`status`) VALUES ('642340153@qq.com','111','1') [ RunTime:0.0640s ]
+SQL: SHOW COLUMNS FROM `pwd_user_authenticate` [ RunTime:0.0020s ]
+SQL: INSERT INTO `pwd_user_authenticate` (`user_id`,`password`,`password2`) VALUES ('32','bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a','4cc8f4d609b717356701c57a03e737e5ac8fe885da8c7163d3de47e01849c635') [ RunTime:0.0190s ]
+ERR: Extension missing: openssl
+
+[ 2016-11-29T16:22:14+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_status D:\AppServ\www\pwdManager\pwdManager\Application\Runtime\Cache\Home\0cc96d85a5e6336bef62f54f9bf941a9.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-29T16:22:27+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `pwd_user` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `pwd_user` WHERE `email` = '642340153@qq.com' LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `pwd_user` (`email`,`nickname`,`status`) VALUES ('642340153@qq.com','111','1') [ RunTime:0.0750s ]
+SQL: SHOW COLUMNS FROM `pwd_user_authenticate` [ RunTime:0.0020s ]
+SQL: INSERT INTO `pwd_user_authenticate` (`user_id`,`password`,`password2`) VALUES ('33','bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a','4cc8f4d609b717356701c57a03e737e5ac8fe885da8c7163d3de47e01849c635') [ RunTime:0.0300s ]
+ERR: Extension missing: openssl
+
+[ 2016-11-29T16:26:05+08:00 ] ::1 /pwdManager/pwdManager/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_status D:\AppServ\www\pwdManager\pwdManager\Application\Runtime\Cache\Home\ccc714bf1ad7378d61a4beb8be3a2914.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2016-11-29T16:26:07+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_status D:\AppServ\www\pwdManager\pwdManager\Application\Runtime\Cache\Home\0cc96d85a5e6336bef62f54f9bf941a9.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-29T16:26:36+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `pwd_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `pwd_user` WHERE `email` = '642340153@qq.com' LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `pwd_user` (`email`,`nickname`,`status`) VALUES ('642340153@qq.com','111','1') [ RunTime:0.0740s ]
+SQL: SHOW COLUMNS FROM `pwd_user_authenticate` [ RunTime:0.0020s ]
+SQL: INSERT INTO `pwd_user_authenticate` (`user_id`,`password`,`password2`) VALUES ('34','bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a','0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c') [ RunTime:0.0520s ]
+ERR: Extension missing: openssl
+
+[ 2016-11-29T16:27:31+08:00 ] ::1 /pwdManager/pwdManager/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_status D:\AppServ\www\pwdManager\pwdManager\Application\Runtime\Cache\Home\ccc714bf1ad7378d61a4beb8be3a2914.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-29T16:27:39+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `pwd_user` [ RunTime:0.0010s ]
+SQL: SELECT `user_id`,`nickname`,`status` FROM `pwd_user` WHERE `email` = 'souniangao@163.com' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `pwd_user_authenticate` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `pwd_user_authenticate` WHERE `user_id` = 29 AND `password` = 'bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a' LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-29T16:27:50+08:00 ] ::1 /pwdManager/pwdManager/index.php/Home/User/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `pwd_user` [ RunTime:0.0010s ]
+SQL: SELECT `user_id`,`nickname`,`status` FROM `pwd_user` WHERE `email` = 'souniangao@163.com' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `pwd_user_authenticate` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `pwd_user_authenticate` WHERE `user_id` = 29 AND `password` = '94192e397ab4b56c69f6218a2b82430c99dbd04d9d4f4b807ceaa95e08a37ecb' LIMIT 1   [ RunTime:0.0000s ]
+
