@@ -1,69 +1,160 @@
+<script src="../../../Public/utils/jquery/jquery-1.10.2.min.js"></script>
 <include file="./Template/Customer/Common/header.html" />
 <include file="./Template/Customer/Common/nav.html" />
 
-<style type="text/css">
-    .lj-alert h4{
-        font-weight: 100;
-    }
-</style>
 <div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Password Generator</h1>
-        </div>
-    </div>
     <form>
-        <div class="form-group">
-            <label for="lengthInput">Length (4-50)</label>
-            <input type="length" class="form-control" id="lengthInput" placeholder="Input length">
-        </div>
-        <div class="checkbox">
-            <label>
-                <input id = "includeSymbolCheckbox" name="condCheckbox" type="checkbox" checked> include sympbols
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input id="includeNumCheckbox" name="condCheckbox" type="checkbox" checked> include numbers
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input id="includeLowCaseCheckbox" name="condCheckbox" type="checkbox" checked> include lower case characters
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input id="includeUpCaseCheckbox" name="condCheckbox" type="checkbox" checked> include upper case characters
-            </label>
-        </div>
+    <div class="form-group">
+        <label for="lengthInput">Length (4-50)</label>
+        <input type="length" class="form-control" id="lengthInput" placeholder="Input length">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input id = "includeSymbolCheckbox" name="condCheckbox" type="checkbox" checked> include sympbols
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+          <input id="includeNumCheckbox" name="condCheckbox" type="checkbox" checked> include numbers
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input id="includeLowCaseCheckbox" name="condCheckbox" type="checkbox" checked> include lower case characters
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input id="includeUpCaseCheckbox" name="condCheckbox" type="checkbox" checked> include upper case characters
+        </label>
+  </div>
+  
+    <button type="button" id="genBtn" class="btn btn-info">Generate</button>
 
-        <button type="button" id="genBtn" class="btn btn-info">Generate</button>
-
-        <p id="errMsg1" class="errMsg" style="display: none; font-size:10px; color: red">
-            Please input a valid number in the range 4-50 for length.
-        </p>
-        <p id="errMsg2" class="errMsg" style="display: none; font-size:10px; color: red">
-            Please select at least one condition for password generation.
-        </p>
+    <p id="errMsg1" class="errMsg" style="display: none; font-size:10px; color: red">
+        Please input a valid number in the range 4-50 for length.
+    </p>
+    <p id="errMsg2" class="errMsg" style="display: none; font-size:10px; color: red">
+        Please select at least one condition for password generation.
+    </p>
     </form>
 
     <!--Result area-->
     <div class="row">
-        <div class="col-xs-4">Generated password: </div>
-        <div id="result" class="col-xs-6"></div>
-        <div id="copyBtn" class="col-xs-2">
-            <button id="copyBtn" type="button" class="btn btn-secondary">Copy</button>
-        </div>
+      <div class="col-xs-4">Generated password: </div>
+      <div id="result" class="col-xs-6"></div>
+      <div id="copyBtn" class="col-xs-2">
+          <button id="copyBtn" type="button" class="btn btn-secondary">Copy</button>
+      </div>
     </div>
 
 </div>
-<!-- /#page-wrapper -->
 
+<script>
 
+    $(document).ready(function() {
+        $("#copyBtn").on('click', copyToClipboard);
 
-<include file="./Template/Customer/Common/footer.html" />
-<script type="text/javascript">
+        $('#genBtn').click(function(){
+        var lengthInput = $("#lengthInput").val();
+        if (!ckIsInt(lengthInput) || !ckIsInRange(lengthInput, 4, 50)){
+            var errorMsg = document.getElementById("errMsg1");
+            errorMsg.style.display = "block";
+            return false;
+        }
+        var checkboxes=document.getElementsByName("condCheckbox");
+        var selectedCond = containChecked(checkboxes);
+        if (selectedCond.length <1){
+            var errorMsg = document.getElementById("errMsg2");
+            errorMsg.style.display = "block";
+            return false;
+        }
+        var pool = new Array(4);
+        pool[0] = "!@#$%^&*()";
+        pool[1] = "0123456789";
+        pool[2] = "abcdefghijklmnopqrstuvwxyz";
+        pool[3] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var selectedCondLength = selectedCond.length;
+        var result = "";
+        for (var i=0; i<lengthInput;i++){
+            var poolLoc = (selectedCond.length >1)?selectedCond.charAt(Math.floor((Math.random() * selectedCondLength))): selectedCond;
+            var poolLength = pool[poolLoc].length;
+            result += pool[poolLoc].charAt((Math.random() * poolLength));
+        }
+        $("#result").text(result);
+      });
 
+      $("input").change(function(){
+        $(".errMsg").hide();
+      });
+      $("#lengthInput").on('change keydown paste input', function(){
+          $(".errMsg").hide();
+      });
+    });
+
+    function ckIsInt(val){
+      return !isNaN(val) && parseInt(Number(val)) == val && !isNaN(parseInt(val, 10));
+    }
+
+    function ckIsInRange(num, min, max){
+      return (num<=max && num>=min)?true:false;
+    }
+
+    function containChecked(checkboxes){
+      var length = checkboxes.length;
+      var selected = "";
+      for (var i=0; i<length; i++){
+          if (checkboxes[i].checked)
+            selected += i;
+      }
+      return selected;
+    }
+
+    function copyToClipboardFF(text) {
+      window.prompt ("Copy to clipboard: Ctrl C, Enter", text);
+    }
+
+    function copyToClipboard() {
+      var input = $("#result");
+
+      var success = true,
+         range = document.createRange(),
+         selection;
+
+     // For IE.
+     if (window.clipboardData) {
+       window.clipboardData.setData("Text", input.text());
+     } else {
+       // Create a temporary element off screen.
+       var tmpElem = $('<div>');
+       tmpElem.css({
+         position: "absolute",
+         left:     "-1000px",
+         top:      "-1000px",
+       });
+       // Add the input value to the temp element.
+       tmpElem.text(input.text());
+       $("body").append(tmpElem);
+       // Select temp element.
+       range.selectNodeContents(tmpElem.get(0));
+       selection = window.getSelection ();
+       selection.removeAllRanges ();
+       selection.addRange (range);
+       // Lets copy.
+       try { 
+         success = document.execCommand ("copy", false, null);
+       }
+       catch (e) {
+         copyToClipboardFF(input.val());
+       }
+       if (success) {
+         // remove temp element.
+         tmpElem.remove();
+          }
+      }
+    }
 </script>
+
+<!-- /#page-wrapper -->
+<include file="./Template/Customer/Common/footer.html" />
 <include file="./Template/Customer/Common/foot.html" />
