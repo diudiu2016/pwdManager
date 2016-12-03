@@ -45,6 +45,31 @@ class PasswordController extends Controller {
             }
         }
     }
+
+    public function check_item_pwd(){
+        if(IS_POST) {
+            //$pwd = I('post.pwd','');
+            $pwd_id = I('post.id','');
+
+            $UP = M('user_passwords');
+            $where['user_id'] = get_user_id();
+           // $where['password'] = $pwd;
+            $where['password_id'] = $pwd_id;
+            $result = $UP->where($where)->find();
+            if($result){
+                //if item password matches
+                $res['code'] = 0;
+                $res['pwd'] = $result['password'];
+                //$res['salt'] = $salt;
+                $this->ajaxReturn($res);
+            } else {
+                $res['code'] = 1;
+                //$res['password'] = $pwd;
+                $this->ajaxReturn($res);
+            }
+        }
+    }
+
     public function add(){
         $data['title'] = "Add New Passwords";
         if(IS_POST){
@@ -214,21 +239,29 @@ class PasswordController extends Controller {
             $save['user_name'] = I('post.name','');
             $save['password'] = I('post.password', '');
             $save['user_id'] = get_user_id();
-            $where['password_id'] = I('post.pwd_id',0);
+            $where['password_id'] = I('post.id',0);
             $result = $Passwords->where($where)->data($save)->save();
             if($result){
-                $info['message'] = 'Successfully save the password!';
-                $this->assign('info', $info);
-                $data['title'] = "Edit Password";
-                $this->assign('data',$data);
-                $this->display();
+                $res['code'] = 0;
+                $this->ajaxReturn($res);
             } else {
-                $info['error'] = 'Fail to save the password, please try again!';
-                $this->assign('info', $info);
-                $data['title'] = "Edit Password";
-                $this->assign('data',$data);
-                $this->display();
+                $res['code'] = 1;
+                $res['id'] = $save['password_id'];
+                $this->ajaxReturn($res);
             }
+//            if($result){
+//                $info['message'] = 'Successfully save the password!';
+//                $this->assign('info', $info);
+//                $data['title'] = "Edit Password";
+//                $this->assign('data',$data);
+//                $this->display();
+//            } else {
+//                $info['error'] = 'Fail to save the password, please try again!';
+//                $this->assign('info', $info);
+//                $data['title'] = "Edit Password";
+//                $this->assign('data',$data);
+//                $this->display();
+//            }
         } else {
             $res['code'] = 2;
             $res['error'] = 'failed to submit';

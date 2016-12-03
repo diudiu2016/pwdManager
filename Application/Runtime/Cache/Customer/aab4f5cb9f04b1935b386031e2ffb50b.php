@@ -152,63 +152,40 @@
     }
 </style>
 <div id="page-wrapper">
-    <div class="col-xs-10 col-sm-8 col-md-6">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Edit password</h1>
-            </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">My Profile</h1>
         </div>
-
-        <form class="form-horizontal" id="info-info-panel" action="/pwdManager/pwdManager/index.php/Customer/Password/edit" method="post" enctype="multipart/form-data">
-            <?php if(isset($info["error"])): ?><div class="alert alert-danger" role="alert"><?php echo ($info["error"]); ?></div><?php endif; ?>
-
-            <?php if(isset($info["message"])): ?><br>
-                <div class="alert alert-success" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <p><?php echo ($info["message"]); ?></p>
-                </div><?php endif; ?>
-            <input style="display: none" type="number" name="pwd_id" id="pwd-id" value="<?php echo ($info["pwd_id"]); ?>">
-            <div class="form-group">
-                <label for="info-item" class="col-sm-4 control-label">Item</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" name="item" id="info-item" placeholder="Which site your password is for (like 'facebook')" value="<?php echo ($info["item"]); ?>" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="info-name" class="col-sm-4 control-label">User name</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" name="name" id="info-name" placeholder="Your id/name in the site (like 'Mark')"  value="<?php echo ($info["name"]); ?>" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="info-password" class="col-sm-4 control-label">Old Password</label>
-                <div class="col-sm-8">
-                    <input type="password" class="form-control" name="old-password" id="old-password" placeholder="Your old password for this item" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="info-password" class="col-sm-4 control-label">Safety Password</label>
-                <div class="col-sm-8">
-                    <input type="password" class="form-control" name="safety-password" id="safety-password" placeholder="Your safety password" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="info-password" class="col-sm-4 control-label">New Password</label>
-                <div class="col-sm-8">
-                    <input type="password" class="form-control" name="password" id="info-password" placeholder="The content of your password(like '123456a')" value="" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-5 col-sm-3">
-                    <button type="button" class="btn btn-primary btn-block" id="submit" onclick="pwd_check();">save</button>
-                </div>
-            </div>
-        </form>
     </div>
-
+    <div class="col-sm-11">
+        <table class="table table-striped">
+            <tr>
+              <th scope="row">Nickname</th>
+              <td><?php echo (session('user_nickname')); ?></td>
+            </tr>
+            <tr>
+              <th scope="row">Email</th>
+              <td><?php echo (session('user_email')); ?></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group col-sm-11">
+        <div class="col-sm-4">
+            <a role="button" class="btn btn-default btn-xs"
+                                 href="/pwdManager/pwdManager/index.php/Customer/Profile/forget">Forget Safety password</a>
+        </div>
+        <div class="col-sm-4">
+            <a role="button" class="btn btn-default btn-xs"
+                                 href="/pwdManager/pwdManager/index.php/Customer/Profile/editPrimary">Edit Login password</a>
+        </div>
+        <div class="col-sm-4">
+            <a role="button" class="btn btn-default btn-xs"
+                                 href="/pwdManager/pwdManager/index.php/Customer/Profile/editSafety">Edit Safety password</a>
+        </div>
+    </div>
 </div>
+<!-- /#page-wrapper -->
 
 
 
@@ -259,73 +236,7 @@ var maxTime = 600; // seconds
         $(location).attr('href', '/pwdManager/pwdManager/index.php/Home/Index/logout')
     }
 </script>
-<script src="/pwdManager/pwdManager/Public/utils/encryption/sha256.js"></script>
-<script src="/pwdManager/pwdManager/Public/utils/encryption/aes.js"></script>
-<script src="/pwdManager/pwdManager/Public/utils/encryption/aes.ctr.js"></script>
 <script type="text/javascript">
-
-    function pwd_check(){
-        var pwd = $('#safety-password').val();
-        var url = "/pwdManager/pwdManager/index.php/Customer/Password/check_safety_pwd";
-        var data = {pwd : pwd};
-        $.post(url, data, function (res) {
-            if(res.code==0){
-                item_pwd_check(res.salt);
-            } else {
-                alert("Wrong safety password!");
-            }
-        });
-    }
-    function item_pwd_check(salt){
-        var id = $('#pwd-id').val();
-        var safety_pwd = $('#safety-password').val();
-        var item_pwd = $('#old-password').val();
-        var enc_pwd = safety_pwd+salt;
-        var url = "/pwdManager/pwdManager/index.php/Customer/Password/check_item_pwd";
-        var data =
-        {
-            id : id
-            //pwd : final_pwd
-        };
-        $.post(url, data, function (res) {
-            if(res.code==0){
-                var cipher = res.pwd;
-                var original_pwd = Aes.Ctr.decrypt(cipher,enc_pwd,256);
-                if(original_pwd==item_pwd){
-                    pwd_submit(salt);
-                }
-            } else {
-                alert("Wrong old password!");
-            }
-        });
-    }
-    function pwd_submit(salt){
-        var data =[];
-        var id = $('#pwd-id').val();
-        var item = $('#info-item').val();
-        var name = $('#info-name').val();
-        var plaintext = $('#info-password').val();
-        var pwd = $('#safety-password').val();
-        var enc_pwd = pwd+salt;
-        //alert(enc_pwd);
-        var final_pwd =  Aes.Ctr.encrypt(plaintext, enc_pwd, 256);
-        data = {
-            id : id,
-            password : final_pwd,
-            item : item,
-            name : name
-        };
-        var url = "/pwdManager/pwdManager/index.php/Customer/Password/edit";
-        $.post(url, data, function (res) {
-            if(res.code==0){
-                alert("Success!");
-                location.reload();
-            } else {
-                alert(res.id);
-                alert("Failed to edit password, please try again!");
-            }
-        });
-    }
 
 </script>
 </body>

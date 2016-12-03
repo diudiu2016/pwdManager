@@ -28,28 +28,40 @@
                     <p>{$info.message}</p>
                 </div>
             </present>
-            <input style="display: none" type="number" name="pwd_id" id="pwd_id" value="{$info.pwd_id}">
+            <input style="display: none" type="number" name="pwd_id" id="pwd-id" value="{$info.pwd_id}">
             <div class="form-group">
-                <label for="info-item" class="col-sm-3 control-label">Item</label>
-                <div class="col-sm-9">
+                <label for="info-item" class="col-sm-4 control-label">Item</label>
+                <div class="col-sm-8">
                     <input type="text" class="form-control" name="item" id="info-item" placeholder="Which site your password is for (like 'facebook')" value="{$info.item}" required>
                 </div>
             </div>
             <div class="form-group">
-                <label for="info-name" class="col-sm-3 control-label">User name</label>
-                <div class="col-sm-9">
+                <label for="info-name" class="col-sm-4 control-label">User name</label>
+                <div class="col-sm-8">
                     <input type="text" class="form-control" name="name" id="info-name" placeholder="Your id/name in the site (like 'Mark')"  value="{$info.name}" required>
                 </div>
             </div>
             <div class="form-group">
-                <label for="info-password" class="col-sm-3 control-label">New Password</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" name="password" id="info-password" placeholder="The content of your password(like '123456a')" value="" required>
+                <label for="info-password" class="col-sm-4 control-label">Old Password</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" name="old-password" id="old-password" placeholder="Your old password for this item" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="info-password" class="col-sm-4 control-label">Safety Password</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" name="safety-password" id="safety-password" placeholder="Your safety password" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="info-password" class="col-sm-4 control-label">New Password</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" name="password" id="info-password" placeholder="The content of your password(like '123456a')" value="" required>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-5 col-sm-3">
-                    <button type="submit" class="btn btn-primary btn-block" id="submit">save</button>
+                    <button type="button" class="btn btn-primary btn-block" id="submit" onclick="pwd_check();">save</button>
                 </div>
             </div>
         </form>
@@ -60,10 +72,72 @@
 
 
 <include file="./Template/Customer/Common/footer.html" />
-<script type="javascript">
-    $('#add').click(function() {
-        var url = $(this).attr('href');
-        location.href = url;
-    });
+<script src="__PUBLIC__/utils/encryption/sha256.js"></script>
+<script src="__PUBLIC__/utils/encryption/aes.js"></script>
+<script src="__PUBLIC__/utils/encryption/aes.ctr.js"></script>
+<script type="text/javascript">
+
+    function pwd_check(){
+        var pwd = $('#safety-password').val();
+        var url = "__APP__/Customer/Password/check_safety_pwd";
+        var data = {pwd : pwd};
+        $.post(url, data, function (res) {
+            if(res.code==0){
+                item_pwd_check(res.salt);
+            } else {
+                alert("Wrong safety password!");
+            }
+        });
+    }
+    function item_pwd_check(salt){
+        var id = $('#pwd-id').val();
+        var safety_pwd = $('#safety-password').val();
+        var item_pwd = $('#old-password').val();
+        var enc_pwd = safety_pwd+salt;
+        var url = "__APP__/Customer/Password/check_item_pwd";
+        var data =
+        {
+            id : id
+            //pwd : final_pwd
+        };
+        $.post(url, data, function (res) {
+            if(res.code==0){
+                var cipher = res.pwd;
+                var original_pwd = Aes.Ctr.decrypt(cipher,enc_pwd,256);
+                if(original_pwd==item_pwd){
+                    pwd_submit(salt);
+                }
+            } else {
+                alert("Wrong old password!");
+            }
+        });
+    }
+    function pwd_submit(salt){
+        var data =[];
+        var id = $('#pwd-id').val();
+        var item = $('#info-item').val();
+        var name = $('#info-name').val();
+        var plaintext = $('#info-password').val();
+        var pwd = $('#safety-password').val();
+        var enc_pwd = pwd+salt;
+        //alert(enc_pwd);
+        var final_pwd =  Aes.Ctr.encrypt(plaintext, enc_pwd, 256);
+        data = {
+            id : id,
+            password : final_pwd,
+            item : item,
+            name : name
+        };
+        var url = "__APP__/Customer/Password/edit";
+        $.post(url, data, function (res) {
+            if(res.code==0){
+                alert("Success!");
+                location.reload();
+            } else {
+                alert("Failed to edit password, please try again!");
+            }
+        });
+    }
+
 </script>
 <include file="./Template/Customer/Common/foot.html" />

@@ -127,7 +127,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="/pwdManager/pwdManager/index.php/Customer/Index/profile"><i class="fa fa-user fa-fw"></i> My Account
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Profile/index"><i class="fa fa-user fa-fw"></i> My Profile
                     </a>
                 </li>
                 <li>

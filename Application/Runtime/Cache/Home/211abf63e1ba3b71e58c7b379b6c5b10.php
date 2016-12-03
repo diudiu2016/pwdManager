@@ -111,53 +111,57 @@
 </style>
 
 <div class="page-center" >
-<div class="container">
-    <div class="row">
-        <div class="col-sm-7">
-            <h1>Password Manager<span id="typed"></span></h1>
-            Your best account management assistant
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <h1>Password Manager<span id="typed"></span></h1>
+                sYour best account management assistant
 
-        </div>
-    <!-- Form Start -->
-    <div class="col-sm-5 panel panel-default form-box">
-        <div class="form-top">
-            <div class="form-top-left">
-                <h3 align="center"><strong>Log in</strong> and manage your passwords</h3>
             </div>
-            <div class="form-top-right">
-                <span aria-hidden="true" class="typcn typcn-pencil"></span>
+            <!-- Form Start -->
+            <div class="col-sm-5 panel panel-default form-box">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3 align="center">Forget password</h3>
+                    </div>
+                    <div class="form-top-right">
+                        <span aria-hidden="true" class="typcn typcn-pencil"></span>
+                    </div>
+                </div>
+                <div class="form-bottom">
+                    <form role="form" action="/pwdManager/pwdManager/index.php/Home/User/forget" method="post" id="forgetForm" onsubmit="return check(this)" data-parsley-validate>
+                        <div class="form-group">
+                            Email :
+                            <label class="sr-only" for="form-email">Email</label>
+                            <input type="email" name="email" placeholder="Your Email"
+                                   class="form-email form-control" id="form-email" data-parsley-type="email" data-parsley-trigger="blur" data-parsley-required required>
+                        </div>
+                        <p id="errorHint1" class="errMsg" style="display: none; font-size:10px; color: red">
+                            Email cannot be found!
+                        </p>
+                        <div class="form-group">
+                            Nickname :
+                            <label class="sr-only" for="form-email">Nickname</label>
+                            <input type="text" name="nickname" placeholder="Your Nickname"
+                                   class="form-nickname form-control" id="form-nickname"  data-parsley-trigger="blur" data-parsley-required required length="50">
+                        </div>
+                        <p id="errorHint2" class="errMsg" style="display: none; font-size:10px; color: red">
+                            Please input a valid name.
+                        </p>
+                        <p id="errorHint3" class="errMsg" style="display: none; font-size:10px; color: red">
+                            The nickname and email are not matched.
+                        </p>
+                        <button type="submit" id="submit" href="/pwdManager/pwdManager/index.php/Home/User/register"
+                                class="btn btn-block sign-up-main btn-primary" ><strong>Sign Up</strong></button>
+                        <br>
+                        <br>
+                    </form>
+                </div>
             </div>
+
+            <!-- Form End -->
         </div>
-        <div class="form-bottom">
-            <form role="form" action="/pwdManager/pwdManager/index.php/Home/User/index" method="post" id="loginForm" data-parsley-validate>
-                <div class="form-group">
-                    Email :
-                    <label class="sr-only" for="form-email">Email</label>
-                    <input type="email" name="email" placeholder="Your Email"
-                           class="form-email form-control" id="form-email" data-parsley-type="email" data-parsley-trigger="blur" data-parsley-required>
-                </div>
-                <div>
-                </div>
-                <div class="form-group">
-                    Password:
-                    <label class="sr-only" for="form-password">Password</label>
-                    <input type="password" name="password" placeholder="Your Log-in Password"
-                           class="form-email form-control" id="form-password"  data-parsley-trigger="blur" data-parsley-required>
-                </div>
-
-
-                <button type="submit" class="btn btn-block sign-up-main btn-primary" ><strong>Log In</strong></button>
-                <br>
-                <span style="float: left"><small><i><a href="/pwdManager/pwdManager/index.php/Home/User/forget">Forget Password?</a></i></small></span>
-                <span style="float: right"><small>Do not have an account? <strong><a href="/pwdManager/pwdManager/index.php/Home/User/register">Sign up</a></strong> instead!</small></span>
-                <br>
-            </form>
-        </div>
-    </div>
-
-    <!-- Form End -->
-    </div>
-</div><!-- /.container -->
+    </div><!-- /.container -->
 </div>
 </div>
 
@@ -187,6 +191,13 @@
 
 <!--<script src="/pwdManager/pwdManager/Public/custom/js/admin.js"></script>-->
 
+<script type="text/javascript">
 
+    $(document).ready(function() {
+        $("input").change(function(){
+            $(".errMsg").hide();
+          });
+    });
+</script>
 </body>
 </html>
