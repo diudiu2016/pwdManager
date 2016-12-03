@@ -1,0 +1,60 @@
+<include file="./Template/Customer/Common/header.html" />
+<include file="./Template/Customer/Common/nav.html" />
+
+<style type="text/css">
+    .lj-alert h4{
+        font-weight: 100;
+    }
+</style>
+<div id="page-wrapper">
+    <div class="col-xs-10 col-sm-8 col-md-6">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Edit Login password</h1>
+            </div>
+        </div>
+
+        <form class="form-horizontal" id="info-info-panel" action="__APP__/Customer/Profile/editPrimary" method="post" enctype="multipart/form-data">
+            <present name="info.error">
+                <div class="alert alert-danger" role="alert">{$info.error}</div>
+            </present>
+
+            <present name="info.message">
+                <br>
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>{$info.message}</p>
+                </div>
+            </present>
+
+            <div class="form-group">
+                <label for="info-item" class="col-sm-5 control-label">Email</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="email" id="info-email" placeholder="Enter your email for confirmation" value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="info-name" class="col-sm-5 control-label">Safety password</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="safety" id="info-safety" placeholder="Enter safety password for confirmation"  value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="info-password" class="col-sm-5 control-label">New Login Password</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="password" id="info-password" placeholder="Enter new login password" value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-3">
+                    <button type="submit" class="btn btn-primary btn-block" id="submit">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<include file="./Template/Customer/Common/footer.html" />
+<include file="./Template/Customer/Common/foot.html" />
