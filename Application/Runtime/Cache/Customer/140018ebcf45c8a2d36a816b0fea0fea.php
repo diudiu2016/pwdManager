@@ -148,6 +148,11 @@
 
 
 <div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Password Generator</h1>
+        </div>
+    </div>
     <form>
     <div class="form-group">
         <label for="lengthInput">Length (4-50)</label>

@@ -3,16 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3a41b325-40b6-4f8e-a278-168a11be2448" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Customer/Controller/PasswordController.class.php" afterPath="$PROJECT_DIR$/Application/Customer/Controller/PasswordController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/11597bfaab4b2c70ddadd6c591118251.php" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/11597bfaab4b2c70ddadd6c591118251.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/140018ebcf45c8a2d36a816b0fea0fea.php" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/140018ebcf45c8a2d36a816b0fea0fea.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/37e2c05fb52379442ef62cff7ab70e43.php" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/37e2c05fb52379442ef62cff7ab70e43.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/4ea206ed45c420c18293ba599836de1d.php" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/4ea206ed45c420c18293ba599836de1d.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/722ae79993d638d62233dc6cec0bda31.php" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/722ae79993d638d62233dc6cec0bda31.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/aeb0200e7fe3d387fcf1f504164168ad.php" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/aeb0200e7fe3d387fcf1f504164168ad.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/f5055c67669ad75fa1e36011363571ea.php" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/f5055c67669ad75fa1e36011363571ea.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Cache/Home/ccc714bf1ad7378d61a4beb8be3a2914.php" afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Home/ccc714bf1ad7378d61a4beb8be3a2914.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Template/Customer/Password/edit.html" afterPath="$PROJECT_DIR$/Template/Customer/Password/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Customer/16_12_03.log" afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Customer/16_12_03.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Template/Customer/Generator/index.html" afterPath="$PROJECT_DIR$/Template/Customer/Generator/index.html" />
     </list>
     <ignored path="pwdManager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,14 +57,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Template/Customer/Password/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5557554">
+            <state vertical-scroll-proportion="-11.035714">
               <caret line="135" column="20" selection-start-line="135" selection-start-column="20" selection-end-line="135" selection-end-column="20" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Template/Customer/Generator/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.23920864">
+              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Template/Customer/Checker/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.107143">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="13" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,7 +134,6 @@
         <option value="$PROJECT_DIR$/Application/Common/Conf/config.php" />
         <option value="$PROJECT_DIR$/Application/Customer/Controller/IndexController.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php" />
-        <option value="$PROJECT_DIR$/Template/Customer/Generator/index.html" />
         <option value="$PROJECT_DIR$/Application/Checker/Controller/CheckerController.class.php" />
         <option value="$PROJECT_DIR$/Application/Customer/Controller/GeneratorController.class.php" />
         <option value="$PROJECT_DIR$/Application/Customer/Controller/CheckController.class.php" />
@@ -139,6 +151,7 @@
         <option value="$PROJECT_DIR$/Application/Home/Controller/UserController.class.php" />
         <option value="$PROJECT_DIR$/Application/Customer/Controller/PasswordController.class.php" />
         <option value="$PROJECT_DIR$/Template/Customer/Password/edit.html" />
+        <option value="$PROJECT_DIR$/Template/Customer/Generator/index.html" />
       </list>
     </option>
   </component>
@@ -336,7 +349,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Common" />
+              <option name="myItemId" value="Generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwdManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pwdManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Customer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Checker" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -773,20 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Customer/Generator/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.307554">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="68" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template/Customer/Checker/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9316547">
-          <caret line="163" column="5" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -887,11 +908,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Template/Customer/Password/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5557554">
+        <state vertical-scroll-proportion="-11.035714">
           <caret line="135" column="20" selection-start-line="135" selection-start-column="20" selection-end-line="135" selection-end-column="20" />
           <folding>
             <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Customer/Checker/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.107143">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="13" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template/Customer/Generator/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23920864">
+          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
