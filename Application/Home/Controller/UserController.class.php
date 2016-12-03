@@ -41,7 +41,7 @@ class UserController extends Controller {
                     $find2 = $UserAuthenticate->where($where2)->find();
 
                     if($find2){
-                        set_login($find['user_id'],$find['nickname'], $find['status']);
+                        set_login($find['user_id'],$find['nickname'], $find['status'], $email);
                         $this->redirect('Customer/Index/index', '', 0);
                         if(get_user_status() == C('USER_CUSTOMER_STATUS')) {
                             $this->redirect('Customer/Index/index', '', 0);
@@ -127,4 +127,64 @@ class UserController extends Controller {
         }
     }
 
+    public function forget(){
+        $data['title'] = "Password Manager";
+
+        if(IS_POST){
+            $email = I('post.email', '');
+            $nickname = I('post.nickname','');
+            if ($email && $nickname) {
+                $User = M('user');
+                $where['email'] = $email;
+                $where['nickname'] = $nickname;
+                $find = $User->where($where)->find();
+                $user_id = $find['user_id'];
+                if($find) {
+                    //generate random pw
+                    $rand = randPassword();
+                    //write to db
+                    $Passwords = M(user_authenticate);
+                    $where['email'] = $email;
+                    $find1 = $Passwords->where($where)->find();
+
+                    if ($find1){
+                        $UserAuthenticate = M("user_authenticate");
+                        $save['password'] = hash('sha256',$rand);
+                        $where['user_id'] = $user_id;
+                        $result = $UserAuthenticate->where($where)->data($save)->save();
+
+                        if ($result){
+                            //send email to user
+                            $content = "
+                            Dear $nickname, <br/><br/>
+                            Your new password is: $rand<br/><br/>
+                            Best Regards,<br/>
+                            Password Manager Team
+                            ";
+                            if(sendmail($email,'Your password has been reset',$content,'The Password Manager Team')){
+                                redirect('../Index/index', 3, 'Reset password successfully! An email is sent to you with new login password.');
+                            }else{
+                                $res['code'] = 4;
+                                $res['error'] = 'failed to reset password';
+                                $this->ajaxReturn($res);
+                            }
+                        }else{
+                            $res['code'] = 6;
+                            $res['error'] = 'failed to reset password';
+                            $this->ajaxReturn($res);
+                        }
+                    }else{
+                            $res['code'] = 5;
+                            $res['error'] = 'failed to reset password';
+                            $this->ajaxReturn($res);
+                    }
+                } else {
+                    $this->error('Cannot find corresponding account!');
+                }
+            }
+        } else {
+            $this->assign('data', $data);
+            $this->display();
+        }
+    }
 }
