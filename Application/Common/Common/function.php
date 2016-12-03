@@ -3,9 +3,10 @@
 /**
  * 设置用户登录状态
  */
-function set_login($user_id, $user_nickname, $user_status ){
+function set_login($user_id, $user_nickname, $user_status, $email ){
     session('user_id', $user_id);
     session('user_status', $user_status);
+    session('user_email', $email);
 //    if (!$user_name) $user_name = '';
 //    if (!$user_avatar) $user_avatar = 'avatar/default.jpg';
 //    session('user_name', $user_name);
@@ -296,5 +297,15 @@ function sendmail($tomail,$title,$content){
         $mail->SMTPSecure = "tls";
         $mail->Host       = "smtp.gmail.com"; // SMTP server
         return $mail->Send()? true:false;
+}
+function randPassword(){
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()';
+    $pass = array();
+    $alphaLength = strlen($alphabet) - 1;
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass);
 }
 ?>
