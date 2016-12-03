@@ -6,5 +6,6 @@ class GeneratorController extends Controller {
     	$data['title'] = "Password Generator";
     	$this->assign('data',$data);
         $this->display();
+        
     }
 }
