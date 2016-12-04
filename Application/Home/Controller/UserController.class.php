@@ -28,39 +28,51 @@ class UserController extends Controller {
             $email = I('post.email', '');
             $password = I('post.password', 0);
             if ($email && $password) {
+                //recaptcha
+                $post_data = array(
+                    'secret' => '6Lcnmw0UAAAAAHqHJK9RLLuvLeOIS-dcQbd0iUNQ',
+                    'response' => $_POST["g-recaptcha-response"]    );
+                $recaptcha_json_result = $this->send_post('https://www.google.com/recaptcha/api/siteverify', $post_data);
+                $recaptcha_result = json_decode($recaptcha_json_result);
+                //var_dump($recaptcha_result);
+                $recaptcha_array = json_decode(json_encode($recaptcha_result), True);
+                //dump($recaptcha_array);
+                if($recaptcha_array['success']=='true'){
 
-                $User = M('user');
-                $where['email'] = $email;
-                $find = $User->where($where)->field('user_id,nickname,status')->find();
+                    $User = M('user');
+                    $where['email'] = $email;
+                    $find = $User->where($where)->field('user_id,nickname,status')->find();
 
-                if ($find) {
-                    $UserAuthenticate = M("user_authenticate");
-                    $where2['user_id'] = $find['user_id'];
-                    $where2['password'] = hash('sha256',$password);
-                    print_r($where2);
-                    $find2 = $UserAuthenticate->where($where2)->find();
+                    if ($find) {
+                        $UserAuthenticate = M("user_authenticate");
+                        $where2['user_id'] = $find['user_id'];
+                        $where2['password'] = hash('sha256',$password);
+                        print_r($where2);
+                        $find2 = $UserAuthenticate->where($where2)->find();
 
-                    if($find2){
-                        set_login($find['user_id'],$find['nickname'], $find['status'], $email);
-                        $this->redirect('Customer/Index/index', '', 0);
-                        if(get_user_status() == C('USER_CUSTOMER_STATUS')) {
+                        if($find2){
+                            set_login($find['user_id'],$find['nickname'], $find['status'], $email);
                             $this->redirect('Customer/Index/index', '', 0);
-                        } else if(get_user_status() == C('USER_ADMINI_STATUS')) {
-                            //$this->redirect('Admin/Index/index', '', 0);
+                            if(get_user_status() == C('USER_CUSTOMER_STATUS')) {
+                                $this->redirect('Customer/Index/index', '', 0);
+                            } else if(get_user_status() == C('USER_ADMINI_STATUS')) {
+                                //$this->redirect('Admin/Index/index', '', 0);
+                            } else {
+                                set_logout();
+                                $this->redirect('Home/Index/index', '', 0);
+                            }
                         } else {
-                            set_logout();
-                            $this->redirect('Home/Index/index', '', 0);
+                            //$data['error'] = 'Wrong email or password! Please try again!';
+                            $this->error('Wrong password! Please try again!');
                         }
+
                     } else {
                         //$data['error'] = 'Wrong email or password! Please try again!';
-                        $this->error('Wrong password! Please try again!');
+                        $this->error('Wrong email! Please try again!');
                     }
-
-                } else {
-                    //$data['error'] = 'Wrong email or password! Please try again!';
-                    $this->error('Wrong email! Please try again!');
+                } else {  //fail to verify recaptcha
+                    $this->error('Failed to verify your identity!');
                 }
-
             } else {
                 $this->error('Failed to submit your information!');
             }
@@ -69,6 +81,24 @@ class UserController extends Controller {
             $this->redirect('Home/Index/index', '', 0);
         }
     }
+
+    //recaptcha
+    public function send_post($url, $post_data)
+    {
+        $postdata = http_build_query($post_data);
+        $options = array(
+            'http' => array(
+                'method' => 'POST',
+                'header' => 'Content-type:application/x-www-form-urlencoded',
+                'content' => $postdata,
+                'timeout' => 15 * 60 // 超时时间（单位:s）
+            )
+        );
+        $context = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        return $result;
+    }
+
     public function register(){
         $data['title'] = "Password Manager";
 

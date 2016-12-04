@@ -16,6 +16,16 @@
     <!-- Bootstrap core CSS -->
     <link href="/pwdManager/pwdManager/Public/utils/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- fileinput CSS -->
+    <link href="/pwdManager/pwdManager/Public/utils/fileinput/fileinput.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/pwdManager/pwdManager/Public/utils/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/pwdManager/pwdManager/Public/custom/css/sb-admin-2.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.css" rel="stylesheet">
+
     <!-- fontawesome CSS -->
     <link href="/pwdManager/pwdManager/Public/utils/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -35,7 +45,7 @@
     <!--[if lt IE 9]>
     <script src="/pwdManager/pwdManager/Public/utils/html5/html5shiv.min.js"></script>
     <script src="/pwdManager/pwdManager/Public/utils/html5/respond.min.js"></script>
-
+    <script src="//cdn.bootcss.com/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js"></script>
     <![endif]-->
 </head>
 
@@ -56,7 +66,7 @@
         margin-bottom: 10px;
     }
 </style>
-<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0">
     <div class="container nav-container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
@@ -65,7 +75,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand head" href="/pwdManager/pwdManager/index.php/Home/index/index">Password Manager <small>-- Your best assistant</small></a>
+            <a class="navbar-brand head" href="#">Password Manager <small>-- Your best assistant</small></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
@@ -73,6 +83,7 @@
                 <li><a class="scroll-link nav-text" href="#">Features</a></li>
                 <li><a class="scroll-link nav-text" href="#">Testimonials</a></li>
                 <li><a class="scroll-link nav-text" href="#">Sharepad</a></li>
+
                 <?php switch($_SESSION['user_status']): case "1": ?><ul class="nav navbar-nav navbar-right">
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" id="nav-user" data-id="<?php echo ($user["account_id"]); ?>" data-type="1" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -94,73 +105,98 @@
             </ul>
         </div>
     </div>
+
+    <div class="sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Index/index"><i class="fa fa-list-alt fa-fw"></i> Overview
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-list fa-fw"></i> Manage Passwords
+                    <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                    <li>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Password/index">My Passwords</a>
+                    </li>
+                    <li>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Password/add">Add New Passwords</a>
+                    </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Profile/index"><i class="fa fa-user fa-fw"></i> My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Generator/index"><i class="fa fa-lightbulb-o fa-fw"></i> Password Generator
+                    </a>
+                </li>
+                <li>
+                    <a href="/pwdManager/pwdManager/index.php/Customer/Checker/index"><i class="fa fa-check-square-o fa-fw"></i> Password Strength Checker
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
 </nav>
+
+
 <style type="text/css">
-    body{
-        background-image: url(/pwdManager/pwdManager/Public/picture/bg1.jpg);
-        background-size: cover;
-        position:absolute;
-        width: 100%;
-        height: 100%;
-        font-size: 18px;
-        line-height: 20px;
-        font-family: arial, sans-serif;
-        color: #9c9c9c;
-        min-width: 920px;
+    .lj-alert h4{
+        font-weight: 100;
     }
 </style>
-
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<div class="page-center" >
-<div class="container">
-    <div class="row">
-        <div class="col-sm-7">
-            <h1>Password Manager<span id="typed"></span></h1>
-            Your best account management assistant
-
-        </div>
-    <!-- Form Start -->
-    <div class="col-sm-5 panel panel-default form-box">
-        <div class="form-top">
-            <div class="form-top-left">
-                <h3 align="center"><strong>Log in</strong> and manage your passwords</h3>
-            </div>
-            <div class="form-top-right">
-                <span aria-hidden="true" class="typcn typcn-pencil"></span>
+<div id="page-wrapper">
+    <div class="col-xs-10 col-sm-8 col-md-6">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Reset Safety password</h1>
             </div>
         </div>
-        <div class="form-bottom">
-            <form role="form" action="/pwdManager/pwdManager/index.php/Home/User/index" method="post" id="loginForm" data-parsley-validate>
-                <div class="form-group">
-                    Email :
-                    <label class="sr-only" for="form-email">Email</label>
-                    <input type="email" name="email" placeholder="Your Email"
-                           class="form-email form-control" id="form-email" data-parsley-type="email" data-parsley-trigger="blur" data-parsley-required>
-                </div>
-                <div>
-                </div>
-                <div class="form-group">
-                    Password:
-                    <label class="sr-only" for="form-password">Password</label>
-                    <input type="password" name="password" placeholder="Your Log-in Password"
-                           class="form-email form-control" id="form-password"  data-parsley-trigger="blur" data-parsley-required>
-                </div>
 
-                <div class="g-recaptcha" data-sitekey="6Lcnmw0UAAAAAFkeRlOnP2E1W004rVjSOR0vrigv"></div>
+        <form class="form-horizontal" id="info-info-panel" action="/pwdManager/pwdManager/index.php/Customer/Profile/forget" method="post" enctype="multipart/form-data">
+            <?php if(isset($info["error"])): ?><div class="alert alert-danger" role="alert"><?php echo ($info["error"]); ?></div><?php endif; ?>
 
-                <button type="submit" class="btn btn-block sign-up-main btn-primary" ><strong>Log In</strong></button>
-                <br>
-                <span style="float: left"><small><i><a href="/pwdManager/pwdManager/index.php/Home/User/forget">Forget Password?</a></i></small></span>
-                <span style="float: right"><small>Do not have an account? <strong><a href="/pwdManager/pwdManager/index.php/Home/User/register">Sign up</a></strong> instead!</small></span>
-                <br>
-            </form>
-        </div>
+            <?php if(isset($info["message"])): ?><br>
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p><?php echo ($info["message"]); ?></p>
+                </div><?php endif; ?>
+
+            <div class="form-group">
+                <label for="info-item" class="col-sm-5 control-label">Email</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="email" id="info-email" placeholder="Enter your email for confirmation" value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="info-item" class="col-sm-5 control-label">Nickname</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="name" id="info-name" placeholder="Enter your nickname" value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="info-name" class="col-sm-5 control-label">Primary password</label>
+                <div class="col-sm-7">
+                    <input type="password" class="form-control" name="safety" id="info-safety" placeholder="Enter safety password for confirmation"  value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-3">
+                    <button type="submit" class="btn btn-primary btn-block" id="submit">Save</button>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <!-- Form End -->
-    </div>
-</div><!-- /.container -->
 </div>
+
 </div>
 
 <!--jQuery-->
@@ -189,6 +225,24 @@
 
 <!--<script src="/pwdManager/pwdManager/Public/custom/js/admin.js"></script>-->
 
-
+<!--Auto logout function-->
+<script>
+var maxTime = 600; // seconds
+    var time = maxTime;
+    $('body').on('keydown mousemove mousedown', function(e){
+        time = maxTime; // reset
+    });
+    var intervalId = setInterval(function(){
+        time--;
+        if(time <= 0) {
+            ShowInvalidLoginMessage();
+            clearInterval(intervalId);
+        }
+    }, 1000)
+    function ShowInvalidLoginMessage(){
+        alert('Due to no operations within 10 minutes, you are being automatically logout.');
+        $(location).attr('href', '/pwdManager/pwdManager/index.php/Home/Index/logout')
+    }
+</script>
 </body>
 </html>

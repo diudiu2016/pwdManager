@@ -321,7 +321,6 @@ var maxTime = 600; // seconds
                 alert("Success!");
                 location.reload();
             } else {
-                alert(res.id);
                 alert("Failed to edit password, please try again!");
             }
         });
