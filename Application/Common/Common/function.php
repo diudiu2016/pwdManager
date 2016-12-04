@@ -271,13 +271,15 @@ function sendmail($tomail,$title,$content){
         
         $mail = new PHPMailer(true); //实例化PHPMailer类,true表示出现错误时抛出异常
         
-          $mail->IsSMTP(); // 使用SMTP
           $mail->CharSet ="UTF-8";//设定邮件编码
           $mail->SMTPDebug  = 0;                     // 启用SMTP调试 1 = errors  2 =  messages
           $mail->SMTPAuth   = true;                  // 服务器需要验证
-          $mail->Port       = "587";                    // 设置端口
+          $mail->Port       = '465';                    // 设置端口
           $mail->Username   = "pwdmanager3334@gmail.com"; //SMTP服务器的用户帐号
           $mail->Password   = "pwdManager3334root";       //SMTP服务器的用户密码
+          $mail->SMTPKeepAlive = true;
+          $mail->SMTPSecure = "ssl";
+          $mail->Host = "smtp.gmail.com"; // SMTP server
 
           if (is_array($tomail)){
               foreach ($tomail as $m){
@@ -294,8 +296,6 @@ function sendmail($tomail,$title,$content){
           $mail->Body = $content;
           $mail->IsHTML(true);
         
-        $mail->SMTPSecure = "tls";
-        $mail->Host       = "smtp.gmail.com"; // SMTP server
         return $mail->Send()? true:false;
 }
 function randPassword(){
